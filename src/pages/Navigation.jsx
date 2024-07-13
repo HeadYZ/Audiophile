@@ -11,10 +11,26 @@ export default function Navigation() {
 					<HamburgerIcon />
 				</button>
 				<div className={classes.nav__logo}>
-					<Link to='/' className={classes.c}>
+					<Link to='/' className={classes.nav__link}>
 						<Logo />
 					</Link>
 				</div>
+
+				<ul className={classes.nav__list}>
+					<li>
+						<Link className={classes['nav__list-item']}>Home</Link>
+					</li>
+					<li>
+						<Link className={classes['nav__list-item']}>Headphones</Link>
+					</li>
+					<li>
+						<Link className={classes['nav__list-item']}>Speakers</Link>
+					</li>
+					<li>
+						<Link className={classes['nav__list-item']}>Earphones</Link>
+					</li>
+				</ul>
+
 				<div className={classes.nav__cart}>
 					<Link to='cart'>
 						<IconCart />
@@ -24,8 +40,3 @@ export default function Navigation() {
 		</nav>
 	)
 }
-
-// Home
-// Headphones
-// Speakers
-// Earphones

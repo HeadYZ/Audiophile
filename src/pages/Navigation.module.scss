@@ -1,3 +1,4 @@
+@use '../scss//colors.scss' as *;
 .nav {
 	height: 9rem;
 	padding: 2.2rem 1.4rem;
@@ -19,6 +20,14 @@
 	&__logo {
 		padding: 1rem;
 	}
+	&__link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__list {
+		display: none;
+	}
 }
 
 @media (min-width: 768px) {
@@ -26,15 +35,17 @@
 		border-bottom: none;
 		padding: 2.2rem 2.9rem;
 		&__wrapper {
+			margin: 0 auto;
+			max-width: 113rem;
 			position: relative;
 			justify-content: start;
 		}
 		&__wrapper:before {
 			content: '';
 			position: absolute;
-			left: 1.05rem;
-			bottom: 0;
-			width: 68.9rem;
+			left: 1rem;
+			bottom: -2.2rem;
+			width: calc(100% - 2rem);
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		}
 		&__logo {
@@ -42,6 +53,39 @@
 		}
 		&__cart {
 			margin-left: auto;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		&__btn {
+			display: none;
+		}
+		&__list {
+			display: flex;
+			gap: 3.4rem;
+			list-style: none;
+			&-item {
+				color: $white;
+				font-size: 1.3rem;
+				line-height: 2.5rem;
+				letter-spacing: 0.2rem;
+				text-transform: uppercase;
+				font-weight: bold;
+				transition: color 0.3s;
+			}
+			&-item:hover {
+				color: $orange;
+			}
+		}
+		&__wrapper {
+			justify-content: space-between;
+		}
+
+		&__cart,
+		&__logo {
+			margin: 0;
 		}
 	}
 }
