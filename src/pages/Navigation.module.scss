@@ -20,7 +20,7 @@
 	&__logo {
 		padding: 1rem;
 	}
-	&__link {
+	&__link-svg {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -75,9 +75,20 @@
 				font-weight: bold;
 				transition: color 0.3s;
 			}
-			&-item:hover {
+			&-item:hover,
+			&-item:focus {
 				color: $orange;
 			}
+		}
+		&__link-svg:focus .nav__icon {
+			fill: $orange;
+		}
+		&__icon {
+			fill: $white;
+			transition: fill 0.3s;
+		}
+		&__icon:hover {
+			fill: $orange;
 		}
 		&__wrapper {
 			justify-content: space-between;
@@ -86,6 +97,14 @@
 		&__cart,
 		&__logo {
 			margin: 0;
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.nav {
+		&__wrapper {
+			max-width: 130rem;
 		}
 	}
 }

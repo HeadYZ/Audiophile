@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import IconCart from './assets/IconCart'
-import Logo from './assets/Logo'
-import HamburgerIcon from './assets/HamburgerIcon'
+import IconCart from '../assets/IconCart'
+import Logo from '../assets/Logo.jsx'
+import HamburgerIcon from '../assets/HamburgerIcon'
 import classes from './Navigation.module.scss'
 export default function Navigation() {
 	return (
@@ -11,14 +11,16 @@ export default function Navigation() {
 					<HamburgerIcon />
 				</button>
 				<div className={classes.nav__logo}>
-					<Link to='/' className={classes.nav__link}>
+					<Link to='/' className={classes['nav__link-svg']}>
 						<Logo />
 					</Link>
 				</div>
 
 				<ul className={classes.nav__list}>
 					<li>
-						<Link className={classes['nav__list-item']}>Home</Link>
+						<Link className={classes['nav__list-item']} to='/'>
+							Home
+						</Link>
 					</li>
 					<li>
 						<Link className={classes['nav__list-item']}>Headphones</Link>
@@ -32,7 +34,7 @@ export default function Navigation() {
 				</ul>
 
 				<div className={classes.nav__cart}>
-					<Link to='cart'>
+					<Link to='cart' className={classes['nav__link-svg']}>
 						<IconCart />
 					</Link>
 				</div>
