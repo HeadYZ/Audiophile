@@ -1,3 +1,34 @@
-.btn {
-	color: red;
+@use '../scss//typography.scss' as *;
+@use '../scss//colors.scss' as *;
+.header {
+	margin-top: 10.8rem;
+	padding: 0 2.3rem;
+	color: $white;
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	&__heading {
+		margin-bottom: 1.6rem;
+		font-size: 1.4rem;
+		letter-spacing: 1rem;
+		font-weight: 400;
+		text-transform: uppercase;
+		opacity: 49.64%;
+	}
+	&__product {
+		margin-bottom: 2.4rem;
+		font-size: 3.6rem;
+		font-weight: bold;
+		letter-spacing: 1.29px;
+		line-height: 4rem;
+	}
+	&__text-body {
+		opacity: 0.75;
+		margin-bottom: 2.8rem;
+		@include text-body;
+	}
 }

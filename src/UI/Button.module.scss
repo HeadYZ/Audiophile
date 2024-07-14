@@ -10,7 +10,9 @@
 		font-weight: bold;
 		letter-spacing: 0.1rem;
 		background: none;
+		border: none;
 		transition: color 0.3s, background-color 0.3s;
+		cursor: pointer;
 	}
 	&__1 {
 		background-color: $orange;

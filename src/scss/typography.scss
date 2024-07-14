@@ -57,7 +57,7 @@
 	color: rgb(216, 125, 74);
 }
 
-.text-body {
+@mixin text-body {
 	font-size: 1.5rem;
 	font-weight: 500;
 	line-height: 2.5rem;
