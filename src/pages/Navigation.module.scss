@@ -3,6 +3,7 @@
 	height: 9rem;
 	padding: 2.2rem 1.4rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: $black16;
 	a {
 		text-decoration: none;
 	}
@@ -62,6 +63,16 @@
 
 @media (min-width: 992px) {
 	.nav {
+		padding: 2.2rem 16.5rem;
+		height: 9.6rem;
+
+		&__wrapper:before {
+			content: '';
+			position: absolute;
+			left: 1rem;
+			bottom: -2.8rem;
+			width: calc(100% - 2rem);
+		}
 		&__btn {
 			display: none;
 		}
