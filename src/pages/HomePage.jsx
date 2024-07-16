@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Button from '../UI/Button'
 import classes from './HomePage.module.scss'
 export default function HomePage() {
@@ -17,6 +17,27 @@ export default function HomePage() {
 					</article>
 				</div>
 			</header>
+			<main>
+				<section className={classes.products}>
+					<ul className={classes.products__list}>
+						<li className={classes['products__list-item']}>
+							<img src='' alt='' />
+							<h3>Headphones</h3>
+							<Link>Shop</Link>
+						</li>
+						<li className={classes['products__list-item']}>
+							<img src='' alt='' />
+							<h3>Speakers</h3>
+							<Link>Shop</Link>
+						</li>
+						<li className={classes['products__list-item']}>
+							<img src='' alt='' />
+							<h3>Earphones</h3>
+							<Link>Shop</Link>
+						</li>
+					</ul>
+				</section>
+			</main>
 		</>
 	)
 }

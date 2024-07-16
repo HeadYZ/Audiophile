@@ -1,5 +1,10 @@
 @use '../scss//typography.scss' as *;
 @use '../scss//colors.scss' as *;
+
+// HEADER
+// HEADER
+// HEADER
+
 .header {
 	height: 51rem;
 	padding: 0 2.3rem;
@@ -34,6 +39,27 @@
 		opacity: 0.75;
 		margin-bottom: 2.8rem;
 		@include text-body;
+	}
+}
+
+// MAIN
+// MAIN
+// MAIN
+
+// SECTION PRODUCTS
+
+.products {
+	height: 68.3rem;
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 6.8rem;
+		list-style: none;
+		&-item {
+			height: 16.5rem;
+			text-align: center;
+			background-color: $gray;
+		}
 	}
 }
 
