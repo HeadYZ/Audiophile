@@ -5,7 +5,8 @@
 	padding: 0 2.3rem;
 	color: $white;
 	background-color: $black16;
-	&__wrapper {
+
+	&__box {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -45,8 +46,12 @@
 		color: $white;
 		background-color: $black16;
 		&__wrapper {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 113rem;
+		}
+		&__box {
 			width: 37.9rem;
-			justify-content: start;
 		}
 		&__heading {
 			padding-top: 10.7rem;
@@ -67,14 +72,9 @@
 		height: 63.9rem;
 		padding: 0;
 		color: $white;
-		// background-size: contain;
-		&__wrapper {
-			position: relative;
-			width: 100%;
-			// max-width: 113rem;
-			justify-content: start;
+		&__box {
 			align-items: start;
-			z-index: 10;
+			text-align: left;
 		}
 		&__heading {
 			padding-top: 10.7rem;
@@ -86,35 +86,6 @@
 		&__text-body {
 			width: 34.9rem;
 			margin-bottom: 4rem;
-		}
-		&__hero {
-			position: absolute;
-			width: 100%;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			// background-image: linear-gradient(
-			// 		to right,
-			// 		rgba(16, 16, 16.5),
-			// 		rgba(16, 16, 16.5),
-			// 		rgba(16, 16, 16.5, 0.8),
-			// 		rgba(16, 16, 16.5, 0.2),
-			// 		rgba(16, 16, 16, 0.9)
-			// 	),
-			// 	url('../assets/home/desktop/image-hero.jpg');
-			background-image: radial-gradient(circle at 67%, rgba(16, 16, 16.5, 0.5) 30%, rgba(16, 16, 16) 10%),
-				url('../assets/home/desktop/image-hero.jpg');
-			z-index: -1;
-			background-size: cover;
-			background-position: right 25% bottom 0;
-		}
-		article {
-			display: flex;
-			flex-direction: column;
-			margin-left: 16.5rem;
-			width: 37.9rem;
-			background-color: $black16;
 		}
 	}
 }
