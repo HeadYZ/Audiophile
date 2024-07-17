@@ -49,6 +49,7 @@
 // SECTION PRODUCTS
 
 .products {
+	padding: 4rem;
 	height: 68.3rem;
 	&__list {
 		display: flex;
@@ -56,9 +57,54 @@
 		gap: 6.8rem;
 		list-style: none;
 		&-item {
-			height: 16.5rem;
+			height: 21.7rem;
 			text-align: center;
 			background-color: $gray;
+			&-top {
+				position: relative;
+				height: 5.2rem;
+				background: $white;
+			}
+			&-heading {
+				font-size: 1.5rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				letter-spacing: 1.07px;
+			}
+			&-link {
+				font-size: 1.3rem;
+				font-weight: bold;
+				letter-spacing: 0.1rem;
+				text-decoration: none;
+				text-transform: uppercase;
+				span {
+					opacity: 50%;
+					color: $black;
+				}
+			}
+		}
+		&-box {
+			height: 16.5rem;
+			padding-top: 8.8rem;
+			background-color: $gray;
+		}
+		&-img {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			object-fit: cover;
+			&--1 {
+				width: 8rem;
+				height: 10.4rem;
+			}
+			&--2 {
+				width: 8.4rem;
+				min-height: 10.1rem;
+			}
+			&--3 {
+				width: 10.3rem;
+				min-height: 10.4rem;
+			}
 		}
 	}
 }
