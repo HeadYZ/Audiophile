@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import Button from '../UI/Button'
 import classes from './HomePage.module.scss'
 import earphonesImg from '../assets/home/shared/desktop/image-category-thumbnail-earphones.png'
@@ -6,6 +6,11 @@ import speakersImg from '../assets/home/shared/desktop/image-category-thumbnail-
 import headphonesImg from '../assets/home/shared/desktop/image-category-thumbnail-headphones.png'
 import ArrowRightIcon from '../assets/home/shared/desktop/ArrowRight.svg'
 export default function HomePage() {
+	const navigate = useNavigate()
+	function navToEarphones() {
+		navigate('/earphones')
+	}
+
 	return (
 		<>
 			<Outlet />
@@ -29,7 +34,7 @@ export default function HomePage() {
 								<img
 									src={headphonesImg}
 									alt=''
-									className={`${classes['products__list-img ']} ${classes['products__list-img--1']}`}
+									className={`${classes['products__list-img']} ${classes['products__list-img--1']}`}
 								/>
 							</div>
 
@@ -46,32 +51,29 @@ export default function HomePage() {
 								<img
 									src={speakersImg}
 									alt=''
-									className={`${classes['products__list-img ']} ${classes['products__list-img--2']}`}
+									className={`${classes['products__list-img']} ${classes['products__list-img--2']}`}
 								/>
 							</div>
 
 							<div className={classes['products__list-box']}>
 								<h3 className={classes['products__list-item-heading']}>Speakers</h3>
 								<Link className={classes['products__list-item-link']}>
-									{' '}
 									<span>Shop</span>
 									<img src={ArrowRightIcon} alt='' />
 								</Link>
 							</div>
 						</li>
-						<li className={classes['products__list-item']}>
+						<li className={classes['products__list-item']} onClick={navToEarphones}>
 							<div className={classes['products__list-item-top']}>
 								<img
 									src={earphonesImg}
 									alt=''
-									className={`${classes['products__list-img ']} ${classes['products__list-img--3']}`}
+									className={`${classes['products__list-img']} ${classes['products__list-img--3']}`}
 								/>
 							</div>
-
 							<div className={classes['products__list-box']}>
 								<h3 className={classes['products__list-item-heading']}>Earphones</h3>
-								<Link className={classes['products__list-item-link']}>
-									{' '}
+								<Link to='earphones' className={classes['products__list-item-link']}>
 									<span>Shop</span>
 									<img src={ArrowRightIcon} alt='' />
 								</Link>
@@ -82,4 +84,7 @@ export default function HomePage() {
 			</main>
 		</>
 	)
+}
+{
+	/* <div className={`${classes['products__list-item-top']} ${classes['products__list-item-top--last']}`}></div> */
 }
