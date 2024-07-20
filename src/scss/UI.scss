@@ -9,4 +9,12 @@
 	padding: 0 16.5rem;
 }
 
+@mixin link-text-style {
+	font-family: 'Manrope', sans-serif;
+	font-size: 1.3rem;
+	letter-spacing: 0.1rem;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 // 120 168 200 200

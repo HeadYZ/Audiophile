@@ -81,10 +81,36 @@ export default function HomePage() {
 						</li>
 					</ul>
 				</section>
+				<section className={classes.trendy}>
+					<div>
+						<div>
+							<img src='' alt='' />
+							<h2>ZX9 speaker</h2>
+							<Button btn='2'>
+								<Link>See product</Link>
+							</Button>
+						</div>
+						<div>
+							<img src='' alt='' />
+							<h2>ZX7 speaker</h2>
+							<Button btn='2'>
+								<Link>See product</Link>
+							</Button>
+						</div>
+						<div>
+							<div>
+								<img src='' alt='' />
+							</div>
+							<div>
+								<h2>YX1 earphones</h2>
+								<Button btn='2'>
+									<Link>See product</Link>
+								</Button>
+							</div>
+						</div>
+					</div>
+				</section>
 			</main>
 		</>
 	)
-}
-{
-	/* <div className={`${classes['products__list-item-top']} ${classes['products__list-item-top--last']}`}></div> */
 }

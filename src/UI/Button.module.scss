@@ -1,35 +1,47 @@
 @use '../scss/colors.scss' as *;
+@use '../scss/UI.scss' as *;
 
 .btn {
 	&__1,
 	&__2,
 	&__3 {
+		@include link-text-style;
 		width: 16rem;
 		height: 4.8rem;
-		font-size: 1.3rem;
-		font-weight: bold;
-		letter-spacing: 0.1rem;
 		background: none;
 		border: none;
 		transition: color 0.3s, background-color 0.3s;
 		cursor: pointer;
+		a {
+			@include link-text-style;
+		}
 	}
 	&__1 {
 		background-color: $orange;
 		color: $white;
 		text-transform: uppercase;
+		a {
+			color: $white;
+			text-transform: uppercase;
+		}
 	}
 	&__1:hover,
 	&__1:focus {
 		background-color: $forange;
 	}
 	&__2 {
-		color: $black;
+		border: 1px solid $black;
+		a {
+			text-transform: uppercase;
+			color: $black;
+		}
 	}
 	&__2:hover,
 	&__2:focus {
-		color: $white;
 		background-color: $black;
+		a {
+			color: $white;
+		}
 	}
 	&__3:hover,
 	&__3:focus {
