@@ -5,6 +5,11 @@ import earphonesImg from '../assets/home/shared/desktop/image-category-thumbnail
 import speakersImg from '../assets/home/shared/desktop/image-category-thumbnail-speakers.png'
 import headphonesImg from '../assets/home/shared/desktop/image-category-thumbnail-headphones.png'
 import ArrowRightIcon from '../assets/home/shared/desktop/ArrowRight.svg'
+import zx9Img from '../assets/home/mobile/image-speaker-zx9.png'
+import zx7Img from '../assets/home/mobile/image-speaker-zx7.jpg'
+import yx1Img from '../assets/home/mobile/image-earphones-yx1.jpg'
+import patternCircles from '../assets/home/desktop/pattern-circles.svg'
+
 export default function HomePage() {
 	const navigate = useNavigate()
 	function navToEarphones() {
@@ -82,27 +87,35 @@ export default function HomePage() {
 					</ul>
 				</section>
 				<section className={classes.trendy}>
-					<div>
-						<div>
-							<img src='' alt='' />
-							<h2>ZX9 speaker</h2>
+					<div className={classes.trendy__wrapper}>
+						<div className={`${classes.trendy__box} ${classes['trendy__box--first']}`}>
+							<img src={patternCircles} alt='' className={classes.trendy__circles} />
+							<img src={zx9Img} alt='ZX9 speaker' className={classes['trendy__img--1']} />
+							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--first']}`}>
+								ZX9
+								<br />
+								speaker
+							</h2>
+							<p className={classes.trendy__text}>
+								Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+							</p>
+
+							<Link className={classes.trendy__link}>See product</Link>
+						</div>
+						<div className={`${classes.trendy__box} ${classes['trendy__box-info']}  ${classes['trendy__box--second']}`}>
+							<img src={zx7Img} alt='ZX7 speaker' className={`${classes.trendy__img} ${classes['trendy__img--2']}`} />
+
+							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--second']}`}>ZX7 speaker</h2>
 							<Button btn='2'>
 								<Link>See product</Link>
 							</Button>
 						</div>
-						<div>
-							<img src='' alt='' />
-							<h2>ZX7 speaker</h2>
-							<Button btn='2'>
-								<Link>See product</Link>
-							</Button>
-						</div>
-						<div>
-							<div>
-								<img src='' alt='' />
+						<div className={`${classes.trendy__box} ${classes['trendy__box--third']}`}>
+							<div className={classes['trendy__img--radius']}>
+								<img src={yx1Img} alt='YX1 earphones' className={classes.trendy__img} />
 							</div>
-							<div>
-								<h2>YX1 earphones</h2>
+							<div className={`${classes['trendy__box-info']} ${classes['trendy__box-info--second']}`}>
+								<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--second']}`}>YX1 earphones</h2>
 								<Button btn='2'>
 									<Link>See product</Link>
 								</Button>
