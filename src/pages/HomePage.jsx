@@ -6,10 +6,8 @@ import speakersImg from '../assets/home/shared/desktop/image-category-thumbnail-
 import headphonesImg from '../assets/home/shared/desktop/image-category-thumbnail-headphones.png'
 import ArrowRightIcon from '../assets/home/shared/desktop/ArrowRight.svg'
 import zx9Img from '../assets/home/mobile/image-speaker-zx9.png'
-import zx7Img from '../assets/home/mobile/image-speaker-zx7.jpg'
-import yx1Img from '../assets/home/mobile/image-earphones-yx1.jpg'
 import patternCircles from '../assets/home/desktop/pattern-circles.svg'
-
+import zx9ImgDesktop from '../assets/home/desktop/image-speaker-zx9.png'
 export default function HomePage() {
 	const navigate = useNavigate()
 	function navToEarphones() {
@@ -91,6 +89,7 @@ export default function HomePage() {
 						<div className={`${classes.trendy__box} ${classes['trendy__box--first']}`}>
 							<img src={patternCircles} alt='' className={classes.trendy__circles} />
 							<img src={zx9Img} alt='ZX9 speaker' className={classes['trendy__img--1']} />
+							<img src={zx9ImgDesktop} alt='ZX9 speaker' className={classes['trendy__img--desktop']} />
 							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--first']}`}>
 								ZX9
 								<br />
@@ -103,17 +102,13 @@ export default function HomePage() {
 							<Link className={classes.trendy__link}>See product</Link>
 						</div>
 						<div className={`${classes.trendy__box} ${classes['trendy__box-info']}  ${classes['trendy__box--second']}`}>
-							<img src={zx7Img} alt='ZX7 speaker' className={`${classes.trendy__img} ${classes['trendy__img--2']}`} />
-
 							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--second']}`}>ZX7 speaker</h2>
 							<Button btn='2'>
 								<Link>See product</Link>
 							</Button>
 						</div>
 						<div className={`${classes.trendy__box} ${classes['trendy__box--third']}`}>
-							<div className={classes['trendy__img--radius']}>
-								<img src={yx1Img} alt='YX1 earphones' className={classes.trendy__img} />
-							</div>
+							<div className={classes['trendy__img--3']}></div>
 							<div className={`${classes['trendy__box-info']} ${classes['trendy__box-info--second']}`}>
 								<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--second']}`}>YX1 earphones</h2>
 								<Button btn='2'>
