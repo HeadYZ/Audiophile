@@ -182,9 +182,6 @@
 		&--1 {
 			width: 17.2rem;
 		}
-		&--desktop {
-			display: none;
-		}
 
 		&--3 {
 			height: 20rem;
@@ -337,64 +334,6 @@
 			margin-bottom: 4rem;
 		}
 	}
-	.trendy {
-		margin-top: 9.6rem;
-		&__wrapper {
-			@include section-desktop;
-			gap: 3.2rem;
-		}
-		&__box {
-			&--first {
-				display: flex;
-				flex-direction: column;
-				justify-content: end;
-				padding: 4.9rem 17.1rem 6.4rem;
-			}
-			&--second {
-				background-image: url('../assets/home/desktop/image-speaker-zx7.jpg');
-			}
-			&--third {
-				flex-direction: row;
-				gap: 3rem;
-			}
-			&-info {
-				padding-left: 6.2rem;
-				&--second {
-					flex: 1 1 0px;
-					padding-left: 9.5rem;
-					min-height: 32rem;
-				}
-			}
-		}
-		&__text {
-			margin: 2.4rem 0 4rem;
-		}
-		&__heading {
-			&--first {
-				margin-top: 13.3rem;
-			}
-		}
-		&__img {
-			&--1 {
-				display: none;
-			}
-			&--desktop {
-				position: absolute;
-				display: block;
-				width: 41rem;
-			}
-
-			&--3 {
-				flex: 1 1 95px;
-				background-image: url('../assets/home/desktop/image-earphones-yx1.jpg');
-			}
-		}
-		&__circles {
-			top: -39.5%;
-			width: 94.4rem;
-			height: 94.4rem;
-		}
-	}
 }
 
 @media (min-width: 1240px) {
@@ -443,6 +382,68 @@
 					height: 20rem;
 				}
 			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.trendy {
+		margin: 16.8rem auto 0;
+		max-width: 144rem;
+		&__wrapper {
+			@include section-desktop;
+			gap: 4.8rem;
+		}
+		&__box {
+			&--first {
+				height: 56rem;
+				padding: 13.3rem 9.5rem 0 12rem;
+			}
+			&--second {
+				background-image: url('../assets/home/desktop/image-speaker-zx7.jpg');
+			}
+			&--third {
+				gap: 3rem;
+			}
+			&-content {
+				margin-left: auto;
+				width: 34.9rem;
+				text-align: left;
+			}
+			&-info {
+				padding-left: 9.5rem;
+			}
+		}
+		&__heading {
+			&--first {
+				margin: 0;
+			}
+		}
+		&__img {
+			&--1 {
+				position: absolute;
+				bottom: -2%;
+				left: 12.3%;
+				width: 37.3rem;
+				height: 45.5rem;
+			}
+
+			&--3 {
+				flex: 1 1 95px;
+				background-image: url('../assets/home/desktop/image-earphones-yx1.jpg');
+			}
+		}
+		&__circles {
+			top: -7%;
+			left: 29%;
+		}
+		&__link {
+			margin: 0;
+			transition: background-color 0.3s, border 0.3s;
+		}
+		&__link:hover {
+			background-color: #4c4c4c;
+			border: 1px solid #4c4c4c;
 		}
 	}
 }

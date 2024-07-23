@@ -87,19 +87,27 @@ export default function HomePage() {
 				<section className={classes.trendy}>
 					<div className={classes.trendy__wrapper}>
 						<div className={`${classes.trendy__box} ${classes['trendy__box--first']}`}>
+							<img
+								srcSet={`${zx9Img} 320w , ${zx9ImgDesktop} 756w`}
+								sizes='(max-width:992px) 320px,
+         992px'
+								src={zx9Img}
+								alt='ZX9 speaker'
+								className={classes['trendy__img--1']}
+							/>
 							<img src={patternCircles} alt='' className={classes.trendy__circles} />
-							<img src={zx9Img} alt='ZX9 speaker' className={classes['trendy__img--1']} />
-							<img src={zx9ImgDesktop} alt='ZX9 speaker' className={classes['trendy__img--desktop']} />
-							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--first']}`}>
-								ZX9
-								<br />
-								speaker
-							</h2>
-							<p className={classes.trendy__text}>
-								Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
-							</p>
+							<div className={classes['trendy__box-content']}>
+								<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--first']}`}>
+									ZX9
+									<br />
+									speaker
+								</h2>
+								<p className={classes.trendy__text}>
+									Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+								</p>
 
-							<Link className={classes.trendy__link}>See product</Link>
+								<Link className={classes.trendy__link}>See product</Link>
+							</div>
 						</div>
 						<div className={`${classes.trendy__box} ${classes['trendy__box-info']}  ${classes['trendy__box--second']}`}>
 							<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--second']}`}>ZX7 speaker</h2>
