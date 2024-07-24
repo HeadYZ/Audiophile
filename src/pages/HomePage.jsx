@@ -8,12 +8,16 @@ import ArrowRightIcon from '../assets/home/shared/desktop/ArrowRight.svg'
 import zx9Img from '../assets/home/mobile/image-speaker-zx9.png'
 import patternCircles from '../assets/home/desktop/pattern-circles.svg'
 import zx9ImgDesktop from '../assets/home/desktop/image-speaker-zx9.png'
+import manMobileImg from '../assets/home/shared/mobile/image-best-gear.jpg'
+import manTabletImg from '../assets/home/shared/tablet/image-best-gear.jpg'
+import manDesktopImg from '../assets/home/shared/desktop/image-best-gear.jpg'
+
 export default function HomePage() {
 	const navigate = useNavigate()
 	function navToEarphones() {
 		navigate('/earphones')
 	}
-
+	console.log(manDesktopImg)
 	return (
 		<>
 			<Outlet />
@@ -87,14 +91,11 @@ export default function HomePage() {
 				<section className={classes.trendy}>
 					<div className={classes.trendy__wrapper}>
 						<div className={`${classes.trendy__box} ${classes['trendy__box--first']}`}>
-							<img
-								srcSet={`${zx9Img} 320w , ${zx9ImgDesktop} 756w`}
-								sizes='(max-width:992px) 320px,
-         992px'
-								src={zx9Img}
-								alt='ZX9 speaker'
-								className={classes['trendy__img--1']}
-							/>
+							<picture>
+								<source media='(min-width: 1440px)' srcSet={zx9ImgDesktop} />
+								<img src={zx9Img} alt='ZX9 speaker' className={classes['trendy__img--1']} />
+							</picture>
+
 							<img src={patternCircles} alt='' className={classes.trendy__circles} />
 							<div className={classes['trendy__box-content']}>
 								<h2 className={`${classes.trendy__heading} ${classes['trendy__heading--first']}`}>
@@ -124,6 +125,18 @@ export default function HomePage() {
 								</Button>
 							</div>
 						</div>
+					</div>
+				</section>
+				<section className={classes.info}>
+					<div className={classes.info__wrapper}>
+						<div>
+							<picture>
+								<source media='(min-width: 768px) and (max-width: 967px )' srcSet={manTabletImg} />
+								<source media='(min-width: 968px)' srcSet={manDesktopImg} />
+								<img src={manMobileImg} alt='Man wearing earphones listening to music' />
+							</picture>
+						</div>
+						<div></div>
 					</div>
 				</section>
 			</main>
