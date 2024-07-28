@@ -1,0 +1,91 @@
+@use '../../scss//typography.scss' as *;
+@use '../../scss//colors.scss' as *;
+@use '../../scss//UI.scss' as *;
+
+.header {
+	height: 51rem;
+	padding: 0 2.3rem;
+	color: $white;
+	background-color: $black16;
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	&__heading {
+		margin-top: 10.8rem;
+		margin-bottom: 1.6rem;
+		font-size: 1.4rem;
+		letter-spacing: 1rem;
+		font-weight: 400;
+		text-transform: uppercase;
+		opacity: 49.64%;
+	}
+	&__product {
+		margin-bottom: 2.4rem;
+		font-size: 3.6rem;
+		font-weight: bold;
+		letter-spacing: 1.29px;
+		line-height: 4rem;
+		text-transform: uppercase;
+	}
+	&__text-body {
+		opacity: 0.75;
+		margin-bottom: 2.8rem;
+		@include text-body;
+	}
+}
+
+@media (min-width: 768px) {
+	.header {
+		height: 63.9rem;
+		&__wrapper {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 130rem;
+		}
+		&__box {
+			margin: 0 auto;
+			width: 37.9rem;
+		}
+		&__heading {
+			margin-top: 12.6rem;
+			margin-bottom: 2.4rem;
+		}
+		&__product {
+			@include text-h1;
+		}
+		&__text-body {
+			width: 34.9rem;
+			margin-bottom: 4rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.header {
+		@include section-desktop;
+		height: auto;
+		min-height: 63.3rem;
+
+		&__box {
+			margin: 0;
+			align-items: start;
+			text-align: left;
+		}
+		&__heading {
+			margin-top: 12.9rem;
+			margin-bottom: 2.4rem;
+		}
+		&__product {
+			@include text-h1;
+		}
+		&__text-body {
+			width: 34.9rem;
+			margin-bottom: 4rem;
+		}
+	}
+}

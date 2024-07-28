@@ -1,4 +1,4 @@
-@use '../scss//colors.scss' as *;
+@use '../scss/colors.scss' as *;
 .nav {
 	height: 9rem;
 	padding: 2.2rem 1.4rem;
@@ -80,19 +80,19 @@
 			display: flex;
 			gap: 3.4rem;
 			list-style: none;
-			&-item {
-				color: $white;
-				font-size: 1.3rem;
-				line-height: 2.5rem;
-				letter-spacing: 0.2rem;
-				text-transform: uppercase;
-				font-weight: bold;
-				transition: color 0.3s;
-			}
-			&-item:hover,
-			&-item:focus {
-				color: $orange;
-			}
+			// &-item {
+			// 	color: $white;
+			// 	font-size: 1.3rem;
+			// 	line-height: 2.5rem;
+			// 	letter-spacing: 0.2rem;
+			// 	text-transform: uppercase;
+			// 	font-weight: bold;
+			// 	transition: color 0.3s;
+			// }
+			// &-item:hover,
+			// &-item:focus {
+			// 	color: $orange;
+			// }
 		}
 		&__link-svg:focus .nav__icon {
 			fill: $orange;

@@ -3,6 +3,7 @@ import IconCart from '../assets/IconCart'
 import Logo from '../assets/Logo.jsx'
 import HamburgerIcon from '../assets/HamburgerIcon'
 import classes from './Navigation.module.scss'
+import Navitems from '../components/Navigation/NavItems.jsx'
 export default function Navigation() {
 	return (
 		<nav className={classes.nav}>
@@ -17,20 +18,7 @@ export default function Navigation() {
 				</div>
 
 				<ul className={classes.nav__list}>
-					<li>
-						<Link className={classes['nav__list-item']} to='/'>
-							Home
-						</Link>
-					</li>
-					<li>
-						<Link className={classes['nav__list-item']}>Headphones</Link>
-					</li>
-					<li>
-						<Link className={classes['nav__list-item']}>Speakers</Link>
-					</li>
-					<li>
-						<Link className={classes['nav__list-item']}>Earphones</Link>
-					</li>
+					<Navitems />
 				</ul>
 
 				<div className={classes.nav__cart}>

@@ -1,0 +1,15 @@
+@use '../../scss/colors.scss' as *;
+
+.nav__list-item {
+	color: $white;
+	font-size: 1.3rem;
+	line-height: 2.5rem;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	transition: color 0.3s;
+}
+.nav__list-item:hover,
+.nav__list-item:focus {
+	color: $orange;
+}
