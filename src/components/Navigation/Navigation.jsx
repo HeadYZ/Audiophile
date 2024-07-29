@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import IconCart from '../assets/IconCart'
-import Logo from '../assets/Logo.jsx'
-import HamburgerIcon from '../assets/HamburgerIcon'
+import IconCart from '../../assets/IconCart.jsx'
+import Logo from '../../assets/Logo.jsx'
+import HamburgerIcon from '../../assets/HamburgerIcon'
 import classes from './Navigation.module.scss'
-import Navitems from '../components/Navigation/NavItems.jsx'
+import Navitems from './NavItems.jsx'
 export default function Navigation() {
 	return (
 		<nav className={classes.nav}>
