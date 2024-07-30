@@ -1,6 +1,6 @@
 import Button from '../../UI/Button'
 import classes from './Header.module.scss'
-
+// import heroImg from '../../assets/home/desktop/image-hero.jpg'
 export default function Header() {
 	return (
 		<header className={classes.header}>
@@ -13,7 +13,9 @@ export default function Header() {
 					</p>
 					<Button btn='1'>See product</Button>
 				</article>
+				{/* <img src='' alt='' /> */}
 			</div>
+			<div className={classes.header__bg}></div>
 		</header>
 	)
 }

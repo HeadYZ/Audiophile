@@ -39,8 +39,6 @@
 		border-bottom: none;
 		padding: 2.2rem 2.9rem;
 		&__wrapper {
-			margin: 0 auto;
-			max-width: 113rem;
 			position: relative;
 			justify-content: start;
 		}
@@ -65,7 +63,10 @@
 	.nav {
 		padding: 2.2rem 16.5rem;
 		height: 9.6rem;
-
+		&__wrapper {
+			margin: 0 auto;
+			max-width: 113rem;
+		}
 		&__wrapper:before {
 			content: '';
 			position: absolute;
@@ -80,19 +81,6 @@
 			display: flex;
 			gap: 3.4rem;
 			list-style: none;
-			// &-item {
-			// 	color: $white;
-			// 	font-size: 1.3rem;
-			// 	line-height: 2.5rem;
-			// 	letter-spacing: 0.2rem;
-			// 	text-transform: uppercase;
-			// 	font-weight: bold;
-			// 	transition: color 0.3s;
-			// }
-			// &-item:hover,
-			// &-item:focus {
-			// 	color: $orange;
-			// }
 		}
 		&__link-svg:focus .nav__icon {
 			fill: $orange;
@@ -110,14 +98,6 @@
 		&__cart,
 		&__logo {
 			margin: 0;
-		}
-	}
-}
-
-@media (min-width: 1440px) {
-	.nav {
-		&__wrapper {
-			max-width: 130rem;
 		}
 	}
 }

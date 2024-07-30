@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import FbIcon from '../../assets/home/shared/FbIcon.jsx'
 import InstagramIcon from '../../assets/home/shared/InstagramIcon.jsx'
 import TwitterIcon from '../../assets/home/shared/TwitterIcon.jsx'
@@ -9,7 +10,9 @@ export default function Footer() {
 		<footer className={classes.footer}>
 			<div className={classes.footer__wrapper}>
 				<div className={classes.footer__heading}>
-					<Logo />
+					<Link to='/' className={classes.footer__link}>
+						<Logo />
+					</Link>
 					<ul className={classes.footer__list}>
 						<Navitems />
 					</ul>
@@ -23,9 +26,16 @@ export default function Footer() {
 					Copyright 2021. All Rights Reserved
 				</p>
 				<div className={classes.footer__social}>
-					<FbIcon />
-					<TwitterIcon />
-					<InstagramIcon />
+					<a href='' className={classes.footer__link}>
+						<FbIcon />
+					</a>
+					<a href='' className={classes.footer__link}>
+						<TwitterIcon />
+					</a>
+
+					<a href='' className={classes.footer__link}>
+						<InstagramIcon />
+					</a>
 				</div>
 			</div>
 		</footer>

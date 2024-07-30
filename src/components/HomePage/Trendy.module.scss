@@ -3,9 +3,9 @@
 @use '../../scss//UI.scss' as *;
 
 .trendy {
+	@include section-mobile;
 	margin-top: 12rem;
 	&__wrapper {
-		@include section-mobile;
 		display: flex;
 		flex-direction: column;
 		gap: 2.4rem;
@@ -110,8 +110,8 @@
 @media (min-width: 768px) {
 	.trendy {
 		margin-top: 9.6rem;
+		@include section-tablet;
 		&__wrapper {
-			@include section-tablet;
 			gap: 3.2rem;
 		}
 		&__box {
@@ -164,11 +164,12 @@
 
 @media (min-width: 1440px) {
 	.trendy {
+		@include section-desktop;
 		margin: 16.8rem auto 0;
-		max-width: 144rem;
 		&__wrapper {
-			@include section-desktop;
 			gap: 4.8rem;
+			max-width: 111rem;
+			margin: 0 auto;
 		}
 		&__box {
 			&--first {
