@@ -1,10 +1,12 @@
 import Button from '../../UI/Button'
+import Navigation from '../Navigation/Navigation'
 import classes from './Header.module.scss'
-// import heroImg from '../../assets/home/desktop/image-hero.jpg'
+import heroImg from '../../assets/home/tablet/image-header.jpg'
 export default function Header() {
 	return (
 		<header className={classes.header}>
 			<div className={classes.header__wrapper}>
+				<Navigation />
 				<article className={classes.header__box}>
 					<span className={classes.header__heading}>New product</span>
 					<h1 className={classes.header__product}>XX99 mark II headphones</h1>
@@ -13,9 +15,8 @@ export default function Header() {
 					</p>
 					<Button btn='1'>See product</Button>
 				</article>
-				{/* <img src='' alt='' /> */}
+				<img src={heroImg} alt='' className={classes.header__img} />
 			</div>
-			<div className={classes.header__bg}></div>
 		</header>
 	)
 }

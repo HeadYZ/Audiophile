@@ -1,7 +1,7 @@
 @use '../../scss/colors.scss' as *;
 .nav {
 	height: 9rem;
-	padding: 2.2rem 1.4rem;
+	padding: 2.2rem 0;
 	// border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	// background-color: $black16;
 	a {
@@ -37,7 +37,7 @@
 @media (min-width: 768px) {
 	.nav {
 		border-bottom: none;
-		padding: 2.2rem 2.9rem;
+		padding: 2.2rem 0;
 		&__wrapper {
 			position: relative;
 			justify-content: start;
@@ -48,7 +48,7 @@
 			left: 1rem;
 			bottom: -2.2rem;
 			width: calc(100% - 2rem);
-			// border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		}
 		&__logo {
 			margin-left: 2.2rem;
@@ -61,7 +61,7 @@
 
 @media (min-width: 992px) {
 	.nav {
-		padding: 2.2rem 16.5rem;
+		padding: 2.2rem 0;
 		height: 9.6rem;
 		&__wrapper {
 			margin: 0 auto;

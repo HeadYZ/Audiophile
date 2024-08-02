@@ -9,13 +9,19 @@ export default function Navitems() {
 				</Link>
 			</li>
 			<li>
-				<Link className={classes['nav__list-item']}>Headphones</Link>
+				<Link to='/headphones' className={classes['nav__list-item']}>
+					Headphones
+				</Link>
 			</li>
 			<li>
-				<Link className={classes['nav__list-item']}>Speakers</Link>
+				<Link to='/speakers' className={classes['nav__list-item']}>
+					Speakers
+				</Link>
 			</li>
 			<li>
-				<Link className={classes['nav__list-item']}>Earphones</Link>
+				<Link to='/earphones' className={classes['nav__list-item']}>
+					Earphones
+				</Link>
 			</li>
 		</>
 	)

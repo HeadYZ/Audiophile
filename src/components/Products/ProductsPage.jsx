@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
-import Info from '../components/HomePage/Info.jsx'
-import Products from '../components/HomePage/Products.jsx'
-import Navigation from '../components/Navigation/Navigation.jsx'
+import Info from '../../components/HomePage/Info.jsx'
+import Products from '../../components/HomePage/Products.jsx'
+import Navigation from '../../components/Navigation/Navigation.jsx'
 import classes from './ProductsPage.module.scss'
-import { fetchProducts } from '../util/http.js'
+import { fetchProducts } from '../../util/http.js'
 import { useQuery } from '@tanstack/react-query'
-import HeadphonesItems from '../components/HeadphonesItems.jsx'
+import HeadphonesItems from '../../components/HeadphonesItems.jsx'
 
 export default function ProductsPage() {
 	const { products: product } = useParams()
