@@ -1,19 +1,10 @@
 @use '../../scss/colors.scss' as *;
+@use '../../scss/typography.scss' as *;
+@use '../../scss/UI.scss' as *;
 
 .products {
-	&__header {
-		background-color: $black;
-		&-title {
-			font-size: 2.8rem;
-			letter-spacing: 0.2rem;
-			color: $white;
-			text-transform: uppercase;
-		}
-		&-box {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 10.2rem;
-		}
+	@include section-mobile;
+	&__wrapper {
+		margin-top: 6.4rem;
 	}
 }

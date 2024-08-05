@@ -1,0 +1,42 @@
+@use '../../scss/colors.scss' as *;
+@use '../../scss/typography.scss' as *;
+
+.products {
+	&__header {
+		background-color: $black;
+		&-title {
+			font-size: 2.8rem;
+			letter-spacing: 0.2rem;
+			color: $white;
+			text-transform: uppercase;
+		}
+		&-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 10.2rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.products {
+		&__header {
+			&-title {
+				@include text-h2;
+			}
+			&-box {
+				height: 24.6rem;
+			}
+		}
+	}
+}
+@media (min-width: 1440px) {
+	.products {
+		&__header {
+			&-box {
+				height: 24rem;
+			}
+		}
+	}
+}

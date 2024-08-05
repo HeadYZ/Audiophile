@@ -1,0 +1,37 @@
+@use '../../scss/colors.scss' as *;
+
+.products {
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 3.2rem;
+		&-box {
+			display: flex;
+			flex-direction: column;
+			gap: 2.4rem;
+			align-items: center;
+			text-align: center;
+		}
+		&-title,
+		&-heading {
+			text-transform: uppercase;
+		}
+		&-title {
+			font-size: 2.8rem;
+			font-weight: bold;
+			letter-spacing: 0.1rem;
+		}
+		&-heading {
+			font-size: 1.4rem;
+			letter-spacing: 1rem;
+			font-weight: 400;
+			color: $orange;
+		}
+		&-description {
+			font-size: 1.5rem;
+			font-weight: 500;
+			line-height: 2.5rem;
+			opacity: 0.5;
+		}
+	}
+}

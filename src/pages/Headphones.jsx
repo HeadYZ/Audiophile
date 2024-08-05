@@ -1,3 +1,5 @@
+import ProductsPage from '../components/Products/ProductsPage.jsx'
+
 export default function Headphones() {
-	return <></>
+	return <ProductsPage productsTitle={'headphones'}></ProductsPage>
 }

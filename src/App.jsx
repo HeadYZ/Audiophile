@@ -4,10 +4,10 @@ import './App.css'
 import RootLayout from './pages/RootLayout'
 import Cart from './pages/Cart'
 import HomePage from './pages/HomePage'
-import Earphones from './pages/Earphones.jsx'
-import Headphones from './pages/Headphones.jsx'
-import Speakers from './pages/Speakers.jsx'
-
+import { lazy, Suspense } from 'react'
+const Earphones = lazy(() => import('./pages/Earphones.jsx'))
+const Headphones = lazy(() => import('./pages/Headphones.jsx'))
+const Speakers = lazy(() => import('./pages/Speakers.jsx'))
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -18,9 +18,30 @@ const router = createBrowserRouter([
 				element: <HomePage />,
 				children: [{ path: '/cart', element: <Cart /> }],
 			},
-			{ path: '/earphones', element: <Earphones /> },
-			{ path: '/headphones', element: <Headphones /> },
-			{ path: '/speakers', element: <Speakers /> },
+			{
+				path: '/earphones',
+				element: (
+					<Suspense fallback={<p>Loading...</p>}>
+						<Earphones />
+					</Suspense>
+				),
+			},
+			{
+				path: '/headphones',
+				element: (
+					<Suspense fallback={<p>Loading...</p>}>
+						<Headphones />
+					</Suspense>
+				),
+			},
+			{
+				path: '/speakers',
+				element: (
+					<Suspense fallback={<p>Loading...</p>}>
+						<Speakers />
+					</Suspense>
+				),
+			},
 		],
 	},
 ])
