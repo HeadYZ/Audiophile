@@ -1,10 +1,20 @@
 @use '../../scss/colors.scss' as *;
-
+@use '../../scss/typography.scss' as *;
 .products {
 	&__item {
 		display: flex;
 		flex-direction: column;
 		gap: 3.2rem;
+		&-picture {
+			width: 32.7rem;
+			height: 35.2rem;
+			border-radius: 0.8rem;
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
 		&-box {
 			display: flex;
 			flex-direction: column;
@@ -32,6 +42,60 @@
 			font-weight: 500;
 			line-height: 2.5rem;
 			opacity: 0.5;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.products {
+		&__item {
+			justify-content: center;
+			align-items: center;
+			gap: 5.2rem;
+			&-picture {
+				width: 68.9rem;
+			}
+			&-box {
+				width: 57.2rem;
+				gap: 0;
+			}
+
+			&-title {
+				margin-top: 1.6rem;
+				@include text-h2;
+			}
+
+			&-description {
+				margin: 3.2rem 0 2.4rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.products {
+		&__item {
+			flex-direction: row;
+			gap: 12.5rem;
+			&-picture {
+				width: 54rem;
+				height: 56rem;
+				&--second {
+					order: 2;
+				}
+				img {
+					object-fit: cover;
+				}
+			}
+			&-box {
+				width: 44.5rem;
+				align-items: start;
+				text-align: left;
+			}
+
+			&-description {
+				margin: 3.2rem 0 4rem;
+			}
 		}
 	}
 }

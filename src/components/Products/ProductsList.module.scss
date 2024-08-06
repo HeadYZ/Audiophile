@@ -4,3 +4,9 @@
 	gap: 12rem;
 	list-style: none;
 }
+
+@media (min-width: 1440px) {
+	.products__list {
+		gap: 16rem;
+	}
+}

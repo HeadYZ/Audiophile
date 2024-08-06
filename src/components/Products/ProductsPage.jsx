@@ -9,7 +9,7 @@ import ProductsList from './ProductsList.jsx'
 // eslint-disable-next-line react/prop-types
 export default function ProductsPage({ productsTitle }) {
 	const { data, isPending } = useQuery({ queryKey: ['products'], queryFn: fetchProducts })
-	console.log(data)
+
 	return (
 		<>
 			<ProductsHeader title={productsTitle} />
@@ -18,7 +18,7 @@ export default function ProductsPage({ productsTitle }) {
 				<section className={classes.products}>
 					<div className={classes.products__wrapper}>
 						{isPending && 'Loading...'}
-						{!isPending && <ProductsList products={data} productTitle={productsTitle} />}
+						{!isPending && <ProductsList products={data} productTitle={productsTitle} images={data.categoryImage} />}
 					</div>
 				</section>
 				<Products />

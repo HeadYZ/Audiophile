@@ -8,3 +8,20 @@
 		margin-top: 6.4rem;
 	}
 }
+@media (min-width: 768px) {
+	.products {
+		@include section-tablet;
+		&__wrapper {
+			margin-top: 12rem;
+		}
+	}
+}
+@media (min-width: 1440px) {
+	.products {
+		@include section-desktop;
+		&__wrapper {
+			margin: 16rem auto 0;
+			max-width: 111rem;
+		}
+	}
+}

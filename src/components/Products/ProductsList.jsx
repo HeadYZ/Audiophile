@@ -6,13 +6,17 @@ export default function ProductsList({ products, productTitle }) {
 		<ul className={classes.products__list}>
 			{products
 				.filter(product => product.category === productTitle)
-				.map(product => {
+				.map((product, index) => {
+					const isEven = index % 2
 					return (
 						<ProductItem
 							key={product.name}
 							title={product.name}
 							description={product.description}
 							newProduct={product.new}
+							images={product.categoryImage}
+							category={product.category}
+							isEven={isEven === 0}
 						/>
 					)
 				})
