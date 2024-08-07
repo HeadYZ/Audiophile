@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom'
 import Button from '../../UI/Button'
 import classes from './ProductItem.module.scss'
 
 export default function ProductItem({ newProduct = false, title, description, images, category, isEven }) {
+	const product = title.split(' ').slice(0, -1).join(' ')
+	const productLink = product.replace(/\s/g, '')
 	return (
 		<li className={classes.products__item}>
 			<div className={`${classes['products__item-picture']} ${!isEven && classes['products__item-picture--second']}`}>
@@ -19,12 +22,14 @@ export default function ProductItem({ newProduct = false, title, description, im
 			<div className={classes['products__item-box']}>
 				{newProduct && <h5 className={classes['products__item-heading']}>New Product</h5>}
 				<h2 className={classes['products__item-title']}>
-					{title.split(' ').slice(0, -1).join(' ')}
+					{product}
 					<br></br>
 					{category}
 				</h2>
 				<p className={classes['products__item-description']}>{description}</p>
-				<Button btn='1'>See product</Button>
+				<Button btn='1'>
+					<Link to={productLink}>See product</Link>
+				</Button>
 			</div>
 		</li>
 	)

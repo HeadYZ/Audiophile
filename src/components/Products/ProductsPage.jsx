@@ -13,7 +13,6 @@ export default function ProductsPage({ productsTitle }) {
 	return (
 		<>
 			<ProductsHeader title={productsTitle} />
-
 			<main>
 				<section className={classes.products}>
 					<div className={classes.products__wrapper}>

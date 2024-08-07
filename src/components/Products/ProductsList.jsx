@@ -6,6 +6,7 @@ export default function ProductsList({ products, productTitle }) {
 		<ul className={classes.products__list}>
 			{products
 				.filter(product => product.category === productTitle)
+				.reverse()
 				.map((product, index) => {
 					const isEven = index % 2
 					return (
@@ -19,8 +20,7 @@ export default function ProductsList({ products, productTitle }) {
 							isEven={isEven === 0}
 						/>
 					)
-				})
-				.reverse()}
+				})}
 		</ul>
 	)
 }
