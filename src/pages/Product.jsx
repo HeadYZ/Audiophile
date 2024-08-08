@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { fetchProducts } from '../util/http'
+import Loader from '../UI/Loader.jsx'
+import ProductInfo from '../components/Product/ProductInfo.jsx'
 
 export default function Product() {
 	const { productName } = useParams()
@@ -12,7 +14,12 @@ export default function Product() {
 	console.log(product)
 	return (
 		<>
-			<div></div>
+			{isPending && <Loader />}
+			{!isPending && (
+				<main>
+					<ProductInfo product={product}  />
+				</main>
+			)}
 		</>
 	)
 }
