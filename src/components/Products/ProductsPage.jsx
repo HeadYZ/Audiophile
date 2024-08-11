@@ -3,7 +3,6 @@ import Products from '../../components/HomePage/Products.jsx'
 import classes from './ProductsPage.module.scss'
 import { fetchProducts } from '../../util/http.js'
 import { useQuery } from '@tanstack/react-query'
-import ProductsHeader from './ProductsHeader.jsx'
 import ProductsList from './ProductsList.jsx'
 import Loader from '../../UI/Loader.jsx'
 
@@ -13,17 +12,14 @@ export default function ProductsPage({ productsTitle }) {
 
 	return (
 		<>
-			<ProductsHeader title={productsTitle} />
-			<main>
-				<section className={classes.products}>
-					<div className={classes.products__wrapper}>
-						{isPending && <Loader />}
-						{!isPending && <ProductsList products={data} productTitle={productsTitle} images={data.categoryImage} />}
-					</div>
-				</section>
-				<Products />
-				<Info />
-			</main>
+			<section className={classes.products}>
+				<div className={classes.products__wrapper}>
+					{isPending && <Loader />}
+					{!isPending && <ProductsList products={data} productTitle={productsTitle} images={data.categoryImage} />}
+				</div>
+			</section>
+			<Products />
+			<Info />
 		</>
 	)
 }

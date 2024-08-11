@@ -10,7 +10,7 @@ export default function ProductItem({ newProduct = false, title, description, im
 		<li className={classes.products__item}>
 			<div className={`${classes['products__item-picture']} ${!isEven && classes['products__item-picture--second']}`}>
 				<picture>
-					<source media='(min-width: 768px) and (max-width: 992px )' srcSet={images.tablet} />
+					<source media='(min-width: 768px) and (max-width: 1440px )' srcSet={images.tablet} />
 					<source media='(min-width: 1440px)' srcSet={images.desktop} />
 					<img
 						src={images.mobile}

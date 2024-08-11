@@ -11,15 +11,11 @@ export default function Product() {
 		queryKey: ['products', productName],
 		queryFn: ({ signal }) => fetchProducts({ searchProduct: productName, signal }),
 	})
-	console.log(product)
+
 	return (
 		<>
 			{isPending && <Loader />}
-			{!isPending && (
-				<main>
-					<ProductInfo product={product}  />
-				</main>
-			)}
+			{!isPending && <ProductInfo product={product} />}
 		</>
 	)
 }
