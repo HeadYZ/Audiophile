@@ -2,21 +2,7 @@
 @use '../../scss/typography.scss' as *;
 @use '../../scss/UI.scss' as *;
 .product {
-	@include section-mobile;
-	&__btn {
-		margin-top: 1.6rem;
-		width: 5.7rem;
-		height: 2.5rem;
-		font-size: 1.5rem;
-		line-height: 2.5rem;
-		font-weight: 500;
-		font-family: 'Manrope', sans-serif;
-		opacity: 0.5;
-		background: none;
-		border: none;
-	}
 	&__picture {
-		margin-top: 2.4rem;
 		height: 32.7rem;
 		width: 32.7rem;
 		img {
@@ -57,7 +43,7 @@
 		letter-spacing: 0.129rem;
 		font-weight: bold;
 	}
-	&__box {
+	&__box-second {
 		display: flex;
 		gap: 1.8rem;
 		&-input {
@@ -69,6 +55,41 @@
 			font-family: 'Manrope', sans-serif;
 			border: none;
 			background-color: $gray;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.product {
+		&__box {
+			display: flex;
+			gap: 6.9rem;
+		}
+		&__picture {
+			height: 48rem;
+			min-width: 28.1rem;
+		}
+		&__info {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 3.2rem;
+		}
+		&__overline {
+			margin-top: 0;
+			margin-bottom: -1.5rem;
+			font-size: 1.2rem;
+			letter-spacing: 0.857rem;
+		}
+		&__heading {
+			line-height: 3.2rem;
+			&--old {
+				margin-top: 0;
+			}
+		}
+
+		&__box-second {
+			gap: 1.6rem;
 		}
 	}
 }

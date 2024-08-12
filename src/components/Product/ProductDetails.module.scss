@@ -1,0 +1,29 @@
+@use '../../scss/colors.scss' as *;
+@use '../../scss/typography.scss' as *;
+@use '../../scss/UI.scss' as *;
+.product {
+	@include section-mobile;
+	&__wrapper {
+		margin: 0 auto;
+		max-width: 111rem;
+	}
+	&__btn {
+		margin-top: 3.3rem;
+		margin-bottom: 2.4rem;
+		width: 5.7rem;
+		height: 2.5rem;
+		font-size: 1.5rem;
+		line-height: 2.5rem;
+		font-weight: 500;
+		font-family: 'Manrope', sans-serif;
+		opacity: 0.5;
+		background: none;
+		border: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.product {
+		@include section-tablet;
+	}
+}
