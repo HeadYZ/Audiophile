@@ -2,11 +2,15 @@
 import ProductFeatures from './ProductFeatures.jsx'
 import classes from './ProductDetails.module.scss'
 import ProductInfo from './ProductInfo.jsx'
+import { Link } from 'react-router-dom'
 export default function ProductDetails({ product }) {
 	return (
 		<section className={classes.product}>
 			<div className={classes.product__wrapper}>
-				<button className={classes.product__btn}>Go Back</button>
+				<Link to='../' className={classes.product__link}>
+					Go Back
+				</Link>
+
 				<ProductInfo
 					name={product.name}
 					price={product.price}

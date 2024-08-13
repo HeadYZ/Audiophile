@@ -14,7 +14,7 @@ export default function ProductInfo({ name, price, images, isNew, category, desc
 				</picture>
 			</div>
 			<article className={classes.product__info}>
-				{!isNew && <span className={classes.product__overline}>New product</span>}
+				{isNew && <span className={classes.product__overline}>New product</span>}
 				<h1 className={`${classes.product__heading} ${!isNew && classes['product__heading--old']}`}>
 					{productTitle}
 					<br></br>

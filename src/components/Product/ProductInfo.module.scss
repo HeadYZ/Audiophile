@@ -93,3 +93,28 @@
 		}
 	}
 }
+
+@media (min-width: 1440px) {
+	.product {
+		&__box {
+			gap: 12.5rem;
+		}
+		&__picture {
+			height: 56rem;
+			min-width: 54rem;
+		}
+		&__overline {
+			margin-bottom: -1.6rem;
+			font-size: 1.4rem;
+			letter-spacing: 1rem;
+		}
+		&__heading {
+			@include text-h2;
+		}
+
+		&__box-second {
+			margin-top: 1.5rem;
+			gap: 1.6rem;
+		}
+	}
+}
