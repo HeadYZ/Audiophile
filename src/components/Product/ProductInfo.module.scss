@@ -46,15 +46,62 @@
 	&__box-second {
 		display: flex;
 		gap: 1.8rem;
+		&-tools {
+			position: relative;
+		}
+		&-increment,
+		&-decrement {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1.5rem 1.55rem;
+			width: 4.7rem;
+			height: 4.8rem;
+			background: none;
+			border: none;
+			opacity: 0.25;
+			font-size: 1.3rem;
+			font-weight: bold;
+			letter-spacing: 0.1rem;
+			font-family: 'Manrope', sans-serif;
+			color: $black;
+			transition: color 0.3s, opacity 0.3s;
+		}
+		&-increment {
+			right: 0;
+		}
+		&-decrement {
+			left: 0;
+		}
+		&-increment:hover,
+		&-decrement:hover,
+		&-increment:focus,
+		&-decrement:focus {
+			color: $orange;
+			opacity: 1;
+		}
 		&-input {
 			font-size: 1.3rem;
 			width: 12rem;
+			height: 100%;
 			letter-spacing: 0.1rem;
 			font-weight: bold;
 			text-align: center;
 			font-family: 'Manrope', sans-serif;
 			border: none;
 			background-color: $gray;
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			&[type='number'] {
+				appearance: textfield;
+			}
 		}
 	}
 }
@@ -115,6 +162,11 @@
 		&__box-second {
 			margin-top: 1.5rem;
 			gap: 1.6rem;
+
+			&-increment,
+			&-decrement {
+				cursor: pointer;
+			}
 		}
 	}
 }

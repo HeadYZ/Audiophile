@@ -20,7 +20,7 @@
 	line-height: 4.4rem;
 	letter-spacing: 0.15rem;
 }
-.text-h3 {
+@mixin text-h3 {
 	font-size: 3.2rem;
 	line-height: 3.6rem;
 	letter-spacing: 1.15px;
