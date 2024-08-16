@@ -1,7 +1,7 @@
 import classes from './Info.module.scss'
-import manMobileImg from '../../assets/home/shared/mobile/image-best-gear.jpg'
-import manTabletImg from '../../assets/home/shared/tablet/image-best-gear.jpg'
-import manDesktopImg from '../../assets/home/shared/desktop/image-best-gear.jpg'
+import manMobileImg from '../../assets/shared/mobile/image-best-gear.jpg'
+import manTabletImg from '../../assets/shared/tablet/image-best-gear.jpg'
+import manDesktopImg from '../../assets/shared/desktop/image-best-gear.jpg'
 
 export default function Info() {
 	return (

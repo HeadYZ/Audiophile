@@ -3,7 +3,9 @@ import ProductFeatures from './ProductFeatures.jsx'
 import classes from './ProductDetails.module.scss'
 import ProductInfo from './ProductInfo.jsx'
 import { Link } from 'react-router-dom'
+import ProductAdditionInfo from './ProductAdditionInfo.jsx'
 export default function ProductDetails({ product }) {
+	console.log(product)
 	return (
 		<section className={classes.product}>
 			<div className={classes.product__wrapper}>
@@ -20,6 +22,7 @@ export default function ProductDetails({ product }) {
 					description={product.description}
 				/>
 				<ProductFeatures features={product.features} box={product.includes} />
+				<ProductAdditionInfo products={product.others} images={product.gallery} />
 			</div>
 		</section>
 	)
