@@ -1,9 +1,11 @@
+@use '../../scss/typography.scss' as *;
 .product {
 	&__images {
-		margin-top: 8.8rem;
+		margin: 8.8rem auto 0;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+		max-width: 32.7rem;
 		height: 75.6rem;
 		&-box {
 			&--first {
@@ -13,6 +15,7 @@
 			}
 		}
 		&-picture {
+			border-radius: 0.8rem;
 			width: 100%;
 		}
 	}
@@ -27,11 +30,15 @@
 			font-weight: bold;
 		}
 		&-list {
-			margin-top: 4rem;
+			margin: 4rem auto 0;
 			list-style: none;
+			max-width: 35rem;
 			display: flex;
-			gap: 5.6rem;
 			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 5.6rem;
+
 			&-item {
 				display: flex;
 				flex-direction: column;
@@ -51,6 +58,70 @@
 				font-size: 2.4rem;
 				letter-spacing: 0.171rem;
 				font-weight: bold;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.product {
+		&__images {
+			margin-top: 12rem;
+			max-width: 69rem;
+			flex-direction: row;
+			gap: 1.8rem;
+			height: 36.8rem;
+			&-box--first {
+				picture {
+					max-height: 17.4rem;
+				}
+			}
+		}
+		&__addition {
+			&-heading {
+				margin-top: 12rem;
+				@include text-h3;
+			}
+			&-picture {
+				width: 22.3rem;
+			}
+			&-list {
+				margin-top: 5.6rem;
+				gap: 1.1rem;
+				flex-direction: row;
+				&-item {
+					gap: 4rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.product {
+		&__images {
+			margin-top: 16rem;
+			gap: 3rem;
+			height: 59.2rem;
+			max-width: 111rem;
+			&-box--first {
+				gap: 3.2rem;
+				picture {
+					max-height: 28rem;
+				}
+			}
+		}
+		&__addition {
+			&-heading {
+				margin-top: 16rem;
+			}
+			&-picture {
+				width: 35rem;
+			}
+			&-list {
+				margin-top: 6.4rem;
+				gap: 3rem;
 			}
 		}
 	}

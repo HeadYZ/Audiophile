@@ -5,7 +5,6 @@ import ProductInfo from './ProductInfo.jsx'
 import { Link } from 'react-router-dom'
 import ProductAdditionInfo from './ProductAdditionInfo.jsx'
 export default function ProductDetails({ product }) {
-	console.log(product)
 	return (
 		<section className={classes.product}>
 			<div className={classes.product__wrapper}>

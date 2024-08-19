@@ -9,7 +9,7 @@ export default function ProductAdditionInfo({ products, images }) {
 	return (
 		<>
 			<div className={classes.product__images}>
-				<div className={`${classes['product__images-box']} ${classes['product__images-box--first']}`}>
+				<div className={classes['product__images-box--first']}>
 					{gallery.map((image, id) => (
 						<picture key={id * Math.random() + 'image'}>
 							<source media='(min-width: 768px) and (max-width: 1440px )' srcSet={image.tablet} />
@@ -18,7 +18,7 @@ export default function ProductAdditionInfo({ products, images }) {
 						</picture>
 					))}
 				</div>
-				<div className={classes['product__images-box']}>
+				<div>
 					<picture>
 						<source media='(min-width: 768px) and (max-width: 1440px )' srcSet={lastImage[0].tablet} />
 						<source media='(min-width: 1440px)' srcSet={lastImage[0].desktop} />
