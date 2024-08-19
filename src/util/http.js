@@ -4,7 +4,8 @@ export async function fetchProducts({ searchProduct = false, signal }) {
 	if (searchProduct) {
 		return data.find(product => {
 			let checkedProduct = product.name.split(' ').slice(0, -1).join(' ').replace(/\s/g, '')
-			if (checkedProduct === searchProduct) return true
+
+			if (checkedProduct.toLowerCase() === searchProduct.toLowerCase()) return true
 		})
 	}
 	return data
