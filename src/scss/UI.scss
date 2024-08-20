@@ -17,4 +17,22 @@
 	text-decoration: none;
 }
 
+@mixin flex-r-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flex-c-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin link {
+	width: 100%;
+	height: 100%;
+	@include flex-r-center;
+}
+
 // 120 168 200 200

@@ -8,7 +8,7 @@ export default function ProductDetails({ product }) {
 	return (
 		<section className={classes.product}>
 			<div className={classes.product__wrapper}>
-				<Link to='../' className={classes.product__link}>
+				<Link to='..' className={classes.product__link}>
 					Go Back
 				</Link>
 

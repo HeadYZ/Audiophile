@@ -1,5 +1,9 @@
 @use '../../scss/typography.scss' as *;
+@use '../../scss/UI.scss' as *;
 .product {
+	&__link {
+		@include link;
+	}
 	&__images {
 		margin: 8.8rem auto 0;
 		display: flex;
@@ -33,10 +37,7 @@
 			margin: 4rem auto 0;
 			list-style: none;
 			max-width: 35rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			@include flex-c-center;
 			gap: 5.6rem;
 
 			&-item {
@@ -49,10 +50,7 @@
 			width: 100%;
 		}
 		&-box {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			@include flex-c-center;
 			gap: 3.2rem;
 			&-heading {
 				font-size: 2.4rem;

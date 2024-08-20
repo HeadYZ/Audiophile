@@ -23,7 +23,7 @@ export default function Footer() {
 					facility - we’re open 7 days a week.
 				</p>
 				<p className={`${classes.footer__text} ${classes['footer__text--bold']}`}>
-					Copyright 2021. All Rights Reserved
+					Copyright 2024. All Rights Reserved
 				</p>
 				<div className={classes.footer__social}>
 					<a href='' className={classes.footer__link}>

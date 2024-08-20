@@ -32,8 +32,6 @@ export default function ProductAdditionInfo({ products, images }) {
 				<ul className={classes['product__addition-list']}>
 					{products.map(product => {
 						let productName = product.slug.split('-')
-						console.log(product.name)
-
 						const productCategory = productName.splice(-1, 1)
 						productName = productName.join('')
 
@@ -49,7 +47,9 @@ export default function ProductAdditionInfo({ products, images }) {
 								<div className={classes['product__addition-box']}>
 									<h4 className={classes['product__addition-box-heading']}>{product.name}</h4>
 									<Button btn='1'>
-										<Link to={`/${productCategory}/${productName}`}>See product</Link>
+										<Link to={`/${productCategory}/${productName}`} className={classes.product__link}>
+											See product
+										</Link>
 									</Button>
 								</div>
 							</li>
