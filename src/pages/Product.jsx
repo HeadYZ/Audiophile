@@ -5,6 +5,8 @@ import Loader from '../UI/Loader.jsx'
 import ProductDetails from '../components/Product/ProductDetails.jsx'
 import Products from '../components/HomePage/Products.jsx'
 import Info from '../components/HomePage/Info.jsx'
+import Cart from '../components/Cart/Cart.jsx'
+
 export default function Product() {
 	const { productName } = useParams()
 
@@ -19,6 +21,7 @@ export default function Product() {
 			{!isPending && <ProductDetails product={product} />}
 			{!isPending && <Products product={product} />}
 			{!isPending && <Info product={product} />}
+			{!isPending && <Cart />}
 		</>
 	)
 }

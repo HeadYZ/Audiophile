@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import { lazy, Suspense } from 'react'
 import Product from './pages/Product.jsx'
 import ProductsLayout from './pages/ProductsLayot.jsx'
+import { CartContextProvider } from './store/cart-context.jsx'
 const Earphones = lazy(() => import('./pages/Earphones.jsx'))
 const Headphones = lazy(() => import('./pages/Headphones.jsx'))
 const Speakers = lazy(() => import('./pages/Speakers.jsx'))
@@ -59,7 +60,9 @@ const queryClient = new QueryClient()
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
+			<CartContextProvider>
+				<RouterProvider router={router} />
+			</CartContextProvider>
 		</QueryClientProvider>
 	)
 }

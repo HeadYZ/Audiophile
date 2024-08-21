@@ -2,15 +2,16 @@
 import ProductFeatures from './ProductFeatures.jsx'
 import classes from './ProductDetails.module.scss'
 import ProductInfo from './ProductInfo.jsx'
-import { Link } from 'react-router-dom'
 import ProductAdditionInfo from './ProductAdditionInfo.jsx'
+import { useNavigate } from 'react-router-dom'
 export default function ProductDetails({ product }) {
+	const navigate = useNavigate()
 	return (
 		<section className={classes.product}>
 			<div className={classes.product__wrapper}>
-				<Link to='..' className={classes.product__link}>
+				<button onClick={() => navigate(-1)} className={classes.product__link}>
 					Go Back
-				</Link>
+				</button>
 
 				<ProductInfo
 					name={product.name}
