@@ -21,13 +21,21 @@ const router = createBrowserRouter([
 				element: <HomePage />,
 				children: [{ path: '/cart', element: <Cart /> }],
 			},
+
 			{
 				path: '/earphones',
-				element: (
-					<Suspense fallback={<p>Loading...</p>}>
-						<Earphones />
-					</Suspense>
-				),
+				element: <ProductsLayout />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<p>Loading...</p>}>
+								<Earphones />
+							</Suspense>
+						),
+					},
+					{ path: ':productName', element: <Product /> },
+				],
 			},
 			{
 				path: '/headphones',
@@ -46,11 +54,18 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/speakers',
-				element: (
-					<Suspense fallback={<p>Loading...</p>}>
-						<Speakers />
-					</Suspense>
-				),
+				element: <ProductsLayout />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<p>Loading...</p>}>
+								<Speakers />
+							</Suspense>
+						),
+					},
+					{ path: ':productName', element: <Product /> },
+				],
 			},
 		],
 	},

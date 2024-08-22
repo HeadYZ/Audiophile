@@ -5,7 +5,6 @@ import CartContext from '../../store/cart-context'
 export default function Cart() {
 	const cartCtx = useContext(CartContext)
 	const cartRef = useRef()
-	console.log(cartCtx.products.length)
 	return (
 		<dialog>
 			<div>

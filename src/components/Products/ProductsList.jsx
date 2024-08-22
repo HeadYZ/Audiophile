@@ -25,8 +25,3 @@ export default function ProductsList({ products, productTitle }) {
 	)
 }
 
-// {products.map(product => {
-// 	if (product.category === productTitle) {
-// 		return <ProductItem key={product.name} title={product.name} description={product.description} />
-// 	}
-// })}
