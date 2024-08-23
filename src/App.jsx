@@ -2,12 +2,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.css'
 import RootLayout from './pages/RootLayout'
-import Cart from './pages/Cart'
 import HomePage from './pages/HomePage'
 import { lazy, Suspense } from 'react'
 import Product from './pages/Product.jsx'
 import ProductsLayout from './pages/ProductsLayot.jsx'
 import { CartContextProvider } from './store/cart-context.jsx'
+import Cart from './components/Cart/Cart.jsx'
 const Earphones = lazy(() => import('./pages/Earphones.jsx'))
 const Headphones = lazy(() => import('./pages/Headphones.jsx'))
 const Speakers = lazy(() => import('./pages/Speakers.jsx'))

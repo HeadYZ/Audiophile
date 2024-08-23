@@ -9,9 +9,8 @@ export default function ProductInfo({ name, price, images, isNew, category, desc
 	const formattedPrice = new Intl.NumberFormat().format(price)
 	const productQuantity = useRef()
 	const { addProduct } = useContext(CartContext)
-
 	const addProductHandler = () => {
-		addProduct({ title: productTitle, quantity: productQuantity.current.value })
+		addProduct({ title: productTitle, quantity: productQuantity.current.value, price })
 	}
 
 	const validateInteger = () => {
