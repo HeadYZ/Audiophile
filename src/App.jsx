@@ -27,14 +27,15 @@ const router = createBrowserRouter([
 				element: <ProductsLayout />,
 				children: [
 					{
-						index: true,
+						path: '/earphones',
 						element: (
 							<Suspense fallback={<p>Loading...</p>}>
 								<Earphones />
 							</Suspense>
 						),
+						children: [{ path: 'cart', element: <Cart /> }],
 					},
-					{ path: ':productName', element: <Product /> },
+					{ path: ':productName', element: <Product />, children: [{ path: 'cart', element: <Cart /> }] },
 				],
 			},
 			{
@@ -42,14 +43,15 @@ const router = createBrowserRouter([
 				element: <ProductsLayout />,
 				children: [
 					{
-						index: true,
+						path: '/headphones',
 						element: (
 							<Suspense fallback={<p>Loading...</p>}>
 								<Headphones />
 							</Suspense>
 						),
+						children: [{ path: 'cart', element: <Cart /> }],
 					},
-					{ path: ':productName', element: <Product /> },
+					{ path: ':productName', element: <Product />, children: [{ path: 'cart', element: <Cart /> }] },
 				],
 			},
 			{
@@ -57,14 +59,15 @@ const router = createBrowserRouter([
 				element: <ProductsLayout />,
 				children: [
 					{
-						index: true,
+						path: '/speakers',
 						element: (
 							<Suspense fallback={<p>Loading...</p>}>
 								<Speakers />
 							</Suspense>
 						),
+						children: [{ path: 'cart', element: <Cart /> }],
 					},
-					{ path: ':productName', element: <Product /> },
+					{ path: ':productName', element: <Product />, children: [{ path: 'cart', element: <Cart /> }] },
 				],
 			},
 		],
