@@ -12,7 +12,7 @@ export default function ProductsLayout() {
 		<>
 			<Navigation />
 			{isMainPage && <ProductsHeader title={pathSegments[0]} />}
-			<main>
+			<main >
 				<Outlet />
 			</main>
 		</>

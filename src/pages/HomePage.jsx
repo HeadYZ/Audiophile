@@ -7,8 +7,8 @@ import Info from '../components/HomePage/Info.jsx'
 export default function HomePage() {
 	return (
 		<>
-			<Outlet />
 			<Header />
+			<Outlet />
 			<main>
 				<Products />
 				<Trendy />

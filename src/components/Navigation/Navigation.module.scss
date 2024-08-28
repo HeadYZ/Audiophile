@@ -61,12 +61,18 @@
 
 @media (min-width: 992px) {
 	.nav {
-		padding: 2.2rem 15.5rem;
-		height: 9.6rem;
 		&__wrapper {
 			margin: 0 auto;
 			max-width: 113rem;
 		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.nav {
+		padding: 2.2rem 15.5rem;
+		height: 9.6rem;
+
 		&__wrapper:before {
 			content: '';
 			position: absolute;
@@ -81,6 +87,7 @@
 			display: flex;
 			gap: 3.4rem;
 			list-style: none;
+			padding-left: 18.7rem;
 		}
 		&__link-svg:focus .nav__icon {
 			fill: $orange;
@@ -91,13 +98,13 @@
 		&__icon:hover {
 			fill: $orange;
 		}
-		&__wrapper {
-			justify-content: space-between;
-		}
 
 		&__cart,
 		&__logo {
 			margin: 0;
+		}
+		&__cart {
+			padding-left: 30.75rem;
 		}
 	}
 }

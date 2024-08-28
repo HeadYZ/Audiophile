@@ -1,8 +1,39 @@
- 
- .cart{
-    position: absolute;
-    top: 0;
-    width: 20rem;
-    height: 20rem;
-    background-color: #fff;
- }
+.cart {
+	position: absolute;
+	top: 11.4rem;
+	left: 2.4rem;
+	width: 32.7rem;
+	height: 44.8rem;
+	background-color: #fff;
+	z-index: 30;
+	border-radius: 0.8rem;
+	border: none;
+	&__backdrop {
+		position: fixed;
+		top: 9rem;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 20;
+	}
+}
+
+@media (min-width: 768px) {
+	.cart {
+		width: 37.7rem;
+		height: 48.8rem;
+		left: auto;
+		right: 4rem;
+	}
+}
+
+@media (min-width: 1440px) {
+	.cart {
+		top: 12.9rem;
+		right: 16.5rem;
+		&__backdrop {
+			top: 9.6rem;
+		}
+	}
+}
