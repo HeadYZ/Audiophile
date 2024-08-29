@@ -20,6 +20,7 @@ export default function ProductDetails({ product }) {
 					isNew={product.new}
 					category={product.category}
 					description={product.description}
+					cartIcon={product.cart}
 				/>
 				<ProductFeatures features={product.features} box={product.includes} />
 				<ProductAdditionInfo products={product.others} images={product.gallery} />

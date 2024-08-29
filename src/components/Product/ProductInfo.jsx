@@ -4,13 +4,13 @@ import Button from '../../UI/Button.jsx'
 import classes from './ProductInfo.module.scss'
 import CartContext from '../../store/cart-context.jsx'
 
-export default function ProductInfo({ name, price, images, isNew, category, description }) {
+export default function ProductInfo({ name, price, images, isNew, category, description, cartIcon }) {
 	const productTitle = name.split(' ').slice(0, -1).join(' ')
 	const formattedPrice = new Intl.NumberFormat().format(price)
 	const productQuantity = useRef()
 	const { addProduct } = useContext(CartContext)
 	const addProductHandler = () => {
-		addProduct({ title: productTitle, quantity: productQuantity.current.value, price })
+		addProduct({ title: productTitle, quantity: productQuantity.current.value, price, cartIcon })
 	}
 
 	const validateInteger = () => {

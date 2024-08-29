@@ -6,6 +6,7 @@
 	height: 44.8rem;
 	background-color: #fff;
 	z-index: 30;
+	padding: 3.2rem 2.8rem;
 	border-radius: 0.8rem;
 	border: none;
 	&__backdrop {
@@ -16,6 +17,32 @@
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.5);
 		z-index: 20;
+	}
+	&__heading {
+		font-size: 1.8rem;
+		letter-spacing: 0.129rem;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	&__remove-btn {
+		opacity: 0.5;
+		font-size: 1.5rem;
+		line-height: 2.5rem;
+		font-weight: 500;
+		font-family: 'Manrope', sans-serif;
+		background: none;
+		border: none;
+		text-decoration-line: underline;
+	}
+	&__box{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__list {
+		margin-top: 3.1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
 	}
 }
 

@@ -2,6 +2,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CartContext from '../../store/cart-context'
 import classes from './Cart.module.scss'
+import CartProducts from './CartProducts'
 
 export default function Cart() {
 	const { products } = useContext(CartContext)
@@ -9,7 +10,7 @@ export default function Cart() {
 	const backdropRef = useRef(null)
 	const navigate = useNavigate()
 	const [isOpen, setIsOpen] = useState(false)
-
+	console.log(products)
 	useEffect(() => {
 		if (cartRef.current) {
 			cartRef.current.show()
@@ -53,9 +54,12 @@ export default function Cart() {
 				aria-labelledby='cart-title'
 				aria-describedby='cart-description'
 			>
-				<div>
-					<h1 id='cart-title'>Cart ({products.length})</h1>
+				<div className={classes.cart__box}>
+					<h3 id='cart-title' className={classes.cart__heading}>
+						Cart ({products.length})
+					</h3>
 					<button
+						className={classes['cart__remove-btn']}
 						onClick={() => {
 							/* Remove all items logic */
 						}}
@@ -64,41 +68,8 @@ export default function Cart() {
 						Remove all
 					</button>
 				</div>
-				<ul aria-describedby='cart-description'>
-					{products.map((product, index) => (
-						<li key={index}>
-							<div>
-								{/* <picture>
-                                    <source media='(min-width: 768px) and (max-width: 1440px )' />
-                                    <source media='(min-width: 1440px)' />
-                                    <img src={product.imageUrl} alt={product.name} />
-                                </picture> */}
-							</div>
-							<div>
-								<span>{product.name}</span>
-								<span>{product.price}</span>
-							</div>
-							<div>
-								<button
-									onClick={() => {
-										/* Decrease quantity logic */
-									}}
-									aria-label='Decrease quantity'
-								>
-									-
-								</button>
-								<input type='number' defaultValue='1' min='1' step='1' aria-label={`Quantity for ${product.name}`} />
-								<button
-									onClick={() => {
-										/* Increase quantity logic */
-									}}
-									aria-label='Increase quantity'
-								>
-									+
-								</button>
-							</div>
-						</li>
-					))}
+				<ul className={classes.cart__list} aria-describedby='cart-description'>
+					<CartProducts products={products} />
 				</ul>
 				<div>
 					<span>Total</span>

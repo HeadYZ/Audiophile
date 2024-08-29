@@ -16,7 +16,12 @@ export const CartContextProvider = ({ children }) => {
 			const updatedProducts = [...state.products]
 			const productId = updatedProducts.findIndex(product => product.title === action.title)
 			if (productId === -1) {
-				updatedProducts.push({ title: action.title, quantity: +action.quantity, price: action.price })
+				updatedProducts.push({
+					title: action.title,
+					quantity: +action.quantity,
+					price: action.price,
+					cartIcon: action.cartIcon,
+				})
 			}
 			if (productId >= 0) {
 				updatedProducts[productId].quantity += +action.quantity
@@ -26,8 +31,8 @@ export const CartContextProvider = ({ children }) => {
 		return { state }
 	}
 
-	const addProduct = ({ title, quantity, price }) => {
-		dispatchCart({ type: 'ADD_PRODUCT', title, quantity, price })
+	const addProduct = ({ title, quantity, price, cartIcon }) => {
+		dispatchCart({ type: 'ADD_PRODUCT', title, quantity, price, cartIcon })
 	}
 
 	return <CartContext.Provider value={{ products: cart.products, addProduct }}>{children}</CartContext.Provider>

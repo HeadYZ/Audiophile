@@ -1,0 +1,81 @@
+@use '../..//scss/colors.scss' as *;
+.cart {
+	&__list {
+		&-item {
+			display: flex;
+			align-items: center;
+			gap: 1.6rem;
+		}
+		&-box-img {
+			width: 6.4rem;
+			height: 6.4rem;
+			border-radius: 0.8rem;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+		&-info {
+			display: flex;
+			flex-direction: column;
+		}
+		&-title,
+		&-price {
+			font-weight: bold;
+			line-height: 2.5rem;
+		}
+		&-title {
+			display: inline-block;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 5rem;
+		}
+		&-price {
+			font-size: 1.4rem;
+			opacity: 0.5;
+		}
+		&-box {
+			position: relative;
+			margin-left: auto;
+			display: flex;
+			width: 9.6rem;
+			height: 3.2rem;
+		}
+		&-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			opacity: 0.25;
+			border: none;
+			background: none;
+			&--left {
+				left: 1.15rem;
+			}
+			&--right {
+				right: 1.15rem;
+			}
+		}
+		&-input {
+			font-size: 1.3rem;
+			width: 100%;
+			letter-spacing: 0.1rem;
+			font-weight: bold;
+			text-align: center;
+			font-family: 'Manrope', sans-serif;
+			border: none;
+			background-color: $gray;
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			&[type='number'] {
+				appearance: textfield;
+			}
+		}
+	}
+}
