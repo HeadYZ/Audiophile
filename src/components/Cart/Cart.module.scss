@@ -2,6 +2,8 @@
 	position: absolute;
 	top: 11.4rem;
 	left: 2.4rem;
+	display: flex;
+	flex-direction: column;
 	width: 32.7rem;
 	height: 44.8rem;
 	background-color: #fff;
@@ -34,15 +36,21 @@
 		border: none;
 		text-decoration-line: underline;
 	}
-	&__box{
+	&__box {
 		display: flex;
 		justify-content: space-between;
 	}
+	// &__box-price {
+	// 	align-items: flex-end;
+	// }
 	&__list {
 		margin-top: 3.1rem;
 		display: flex;
 		flex-direction: column;
 		gap: 2.4rem;
+	}
+	&__checkout {
+		margin-top: auto;
 	}
 }
 

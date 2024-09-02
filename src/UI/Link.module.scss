@@ -1,0 +1,10 @@
+@use '../scss/colors.scss' as *;
+@use '../scss/UI.scss' as *;
+.link {
+	@include flex-r-center;
+	@include link-text-style;
+	height: 4.8rem;
+	background-color: $orange;
+	color: $white;
+	text-transform: uppercase;
+}

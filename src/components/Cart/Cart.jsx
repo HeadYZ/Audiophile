@@ -1,16 +1,17 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import CartContext from '../../store/cart-context'
 import classes from './Cart.module.scss'
 import CartProducts from './CartProducts'
+import Link from '../../UI/Link'
 
 export default function Cart() {
-	const { products } = useContext(CartContext)
+	const { products, removeProduct, totalPrice, updateProduct } = useContext(CartContext)
 	const cartRef = useRef(null)
 	const backdropRef = useRef(null)
 	const navigate = useNavigate()
 	const [isOpen, setIsOpen] = useState(false)
-	console.log(products)
+
 	useEffect(() => {
 		if (cartRef.current) {
 			cartRef.current.show()
@@ -68,14 +69,24 @@ export default function Cart() {
 						Remove all
 					</button>
 				</div>
-				<ul className={classes.cart__list} aria-describedby='cart-description'>
-					<CartProducts products={products} />
-				</ul>
-				<div>
+				{products.length > 0 && (
+					<ul className={classes.cart__list} aria-describedby='cart-description'>
+						<CartProducts products={products} onRemove={removeProduct} onUpdate={updateProduct} />
+					</ul>
+				)}
+				{products.length === 0 && <p>No products.</p>}
+
+				<div className={classes['cart__list-box-price']}>
 					<span>Total</span>
-					<span>{/* Total price logic */}</span>
+					<span>{totalPrice}</span>
 				</div>
-				<Link to='/checkout' aria-label='Proceed to checkout'>
+				<Link
+					to='/checkout'
+					aria-label='Proceed to checkout'
+					style={{
+						marginTop: 'auto',
+					}}
+				>
 					Checkout
 				</Link>
 			</dialog>

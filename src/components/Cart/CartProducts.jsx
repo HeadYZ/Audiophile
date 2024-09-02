@@ -2,13 +2,25 @@
 import { useRef } from 'react'
 import classes from './CartProducts.module.scss'
 
-export default function CartProducts({ products }) {
+export default function CartProducts({ products, onRemove, onUpdate }) {
 	const productQuantity = useRef()
-	const validateInteger = () => {
+	const onUpdateHandler = title => {
 		const input = productQuantity.current
 		if (input) {
 			const sanitizedValue = input.value.replace(/[^0-9]/g, '')
-			input.value = sanitizedValue || '1'
+
+			input.value = sanitizedValue
+		}
+
+		if (input && input.value !== '') {
+			onUpdate({ title, quantity: input.value })
+		}
+	}
+	const onBlurHandler = title => {
+		const input = productQuantity.current
+		if (input && input.value === '') {
+			input.value = '1'
+			onUpdate({ title, quantity: input.value })
 		}
 	}
 
@@ -36,7 +48,10 @@ export default function CartProducts({ products }) {
 						</div>
 						<div className={classes['cart__list-box']}>
 							<button
-								onClick={() => productQuantity.current.stepDown()}
+								onClick={() => {
+									onRemove({ title: product.title })
+									productQuantity.current.stepDown()
+								}}
 								aria-label='Decrease quantity'
 								className={`${classes['cart__list-btn']} ${classes['cart__list-btn--left']}`}
 							>
@@ -45,8 +60,13 @@ export default function CartProducts({ products }) {
 							<input
 								type='number'
 								ref={productQuantity}
-								onChange={validateInteger}
+								onChange={() => {
+									onUpdateHandler(product.title)
+								}}
 								onKeyDown={handleKeyPress}
+								onBlur={() => {
+									onBlurHandler(product.title)
+								}}
 								defaultValue={product.quantity}
 								min='1'
 								step='1'
@@ -54,7 +74,10 @@ export default function CartProducts({ products }) {
 								className={classes['cart__list-input']}
 							/>
 							<button
-								onClick={() => productQuantity.current.stepUp()}
+								onClick={() => {
+									onUpdate({ title: product.title })
+									productQuantity.current.stepUp()
+								}}
 								aria-label='Increase quantity'
 								className={`${classes['cart__list-btn']} ${classes['cart__list-btn--right']}`}
 							>

@@ -7,7 +7,6 @@ import Navitems from './NavItems.jsx'
 
 export default function Navigation() {
 	const location = useLocation()
-	console.log(location.pathname)
 	const cartPath = location.pathname.endsWith('/cart')
 		? location.pathname
 		: location.pathname.endsWith('/')
