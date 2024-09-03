@@ -1,3 +1,4 @@
+@use '../..//scss/colors.scss' as *;
 .cart {
 	position: absolute;
 	top: 11.4rem;
@@ -5,8 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 32.7rem;
-	height: 44.8rem;
-	background-color: #fff;
+	background-color: $white;
 	z-index: 30;
 	padding: 3.2rem 2.8rem;
 	border-radius: 0.8rem;
@@ -35,29 +35,48 @@
 		background: none;
 		border: none;
 		text-decoration-line: underline;
+		transition: color 0.3s;
 	}
 	&__box {
 		display: flex;
 		justify-content: space-between;
 	}
-	// &__box-price {
-	// 	align-items: flex-end;
-	// }
+	&__info,
 	&__list {
 		margin-top: 3.1rem;
+		margin-bottom: 3.2rem;
+	}
+	&__info {
+		font-weight: bold;
+	}
+
+	&__list {
 		display: flex;
 		flex-direction: column;
 		gap: 2.4rem;
-	}
-	&__checkout {
-		margin-top: auto;
+		&-box-price {
+			margin-top: auto;
+			margin-bottom: 1.8rem;
+			display: flex;
+			justify-content: space-between;
+		}
+		&-box-price > span:first-child {
+			font-size: 1.5rem;
+			line-height: 2.5rem;
+			opacity: 0.5;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+		&-price {
+			font-size: 1.8rem;
+			font-weight: bold;
+		}
 	}
 }
 
 @media (min-width: 768px) {
 	.cart {
 		width: 37.7rem;
-		height: 48.8rem;
 		left: auto;
 		right: 4rem;
 	}
@@ -67,6 +86,14 @@
 	.cart {
 		top: 12.9rem;
 		right: 16.5rem;
+		&__remove-btn {
+			transition: color 0.3s;
+			cursor: pointer;
+		}
+		&__remove-btn:hover,
+		&__remove-btn:focus {
+			color: $orange;
+		}
 		&__backdrop {
 			top: 9.6rem;
 		}

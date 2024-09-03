@@ -7,6 +7,7 @@ const CartContext = createContext({
 	addProduct: () => {},
 	removeProduct: () => {},
 	updateProduct: () => {},
+	removeProducts: () => {},
 })
 
 const initialCart = { products: [], totalPrice: 0 }
@@ -66,6 +67,9 @@ export const CartContextProvider = ({ children }) => {
 
 			return { ...state, products: updatedProducts, totalPrice: updatedTotalPrice }
 		}
+		if (action.type === 'REMOVE_PRODUCTS') {
+			return { ...state, products: [], totalPrice: 0 }
+		}
 		return { ...state }
 	}
 
@@ -78,10 +82,20 @@ export const CartContextProvider = ({ children }) => {
 	const updateProduct = ({ title, quantity = false }) => {
 		dispatchCart({ type: 'UPDATE_PRODUCT', title, quantity })
 	}
+	const removeProducts = () => {
+		dispatchCart({ type: 'REMOVE_PRODUCTS' })
+	}
 
 	return (
 		<CartContext.Provider
-			value={{ products: cart.products, addProduct, removeProduct, totalPrice: cart.totalPrice, updateProduct }}
+			value={{
+				products: cart.products,
+				addProduct,
+				removeProduct,
+				totalPrice: cart.totalPrice,
+				updateProduct,
+				removeProducts,
+			}}
 		>
 			{children}
 		</CartContext.Provider>

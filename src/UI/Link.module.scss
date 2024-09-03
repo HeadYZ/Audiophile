@@ -7,4 +7,10 @@
 	background-color: $orange;
 	color: $white;
 	text-transform: uppercase;
+	transition: background-color 0.3s;
+}
+
+.link:hover,
+.link:focus {
+	background-color: $forange;
 }

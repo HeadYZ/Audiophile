@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useRef } from 'react'
+import { formattedPrice } from '../../util/numberFormatter.js'
 import classes from './CartProducts.module.scss'
 
 export default function CartProducts({ products, onRemove, onUpdate }) {
@@ -34,7 +35,6 @@ export default function CartProducts({ products, onRemove, onUpdate }) {
 	return (
 		<>
 			{products.map((product, index) => {
-				const formattedPrice = new Intl.NumberFormat().format(product.price)
 				return (
 					<li key={index} className={classes['cart__list-item']}>
 						<div className={classes['cart__list-box-img']}>
@@ -44,7 +44,7 @@ export default function CartProducts({ products, onRemove, onUpdate }) {
 							<span className={classes['cart__list-title']} title={product.title}>
 								{product.title}
 							</span>
-							<span className={classes['cart__list-price']}>$ {formattedPrice}</span>
+							<span className={classes['cart__list-price']}>$ {formattedPrice(product.price)}</span>
 						</div>
 						<div className={classes['cart__list-box']}>
 							<button

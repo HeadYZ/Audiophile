@@ -4,9 +4,10 @@ import CartContext from '../../store/cart-context'
 import classes from './Cart.module.scss'
 import CartProducts from './CartProducts'
 import Link from '../../UI/Link'
+import { formattedPrice } from '../../util/numberFormatter'
 
 export default function Cart() {
-	const { products, removeProduct, totalPrice, updateProduct } = useContext(CartContext)
+	const { products, removeProduct, totalPrice, updateProduct, removeProducts } = useContext(CartContext)
 	const cartRef = useRef(null)
 	const backdropRef = useRef(null)
 	const navigate = useNavigate()
@@ -45,6 +46,10 @@ export default function Cart() {
 		}
 	}, [handleClose])
 
+	function showAlert() {
+		products.length === 0 && alert('There are no products in your cart. Add the product before checkout.')
+	}
+
 	return (
 		<>
 			{isOpen && <div ref={backdropRef} className={classes.cart__backdrop} onClick={handleClose} />}
@@ -61,9 +66,7 @@ export default function Cart() {
 					</h3>
 					<button
 						className={classes['cart__remove-btn']}
-						onClick={() => {
-							/* Remove all items logic */
-						}}
+						onClick={removeProducts}
 						aria-label='Remove all items from the cart'
 					>
 						Remove all
@@ -74,19 +77,13 @@ export default function Cart() {
 						<CartProducts products={products} onRemove={removeProduct} onUpdate={updateProduct} />
 					</ul>
 				)}
-				{products.length === 0 && <p>No products.</p>}
+				{products.length === 0 && <p className={classes.cart__info}>Your cart is empty.</p>}
 
 				<div className={classes['cart__list-box-price']}>
 					<span>Total</span>
-					<span>{totalPrice}</span>
+					<span className={classes['cart__list-price']}>$ {formattedPrice(totalPrice)}</span>
 				</div>
-				<Link
-					to='/checkout'
-					aria-label='Proceed to checkout'
-					style={{
-						marginTop: 'auto',
-					}}
-				>
+				<Link to={products.length > 0 ? '/checkout' : '#'} onClick={showAlert} aria-label='Proceed to checkout'>
 					Checkout
 				</Link>
 			</dialog>

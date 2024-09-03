@@ -47,6 +47,7 @@
 		&-btn {
 			position: absolute;
 			top: 50%;
+			// padding: 0.8rem 0.9rem;
 			transform: translateY(-50%);
 			opacity: 0.25;
 			border: none;
@@ -75,6 +76,24 @@
 
 			&[type='number'] {
 				appearance: textfield;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.cart {
+		&__list {
+			&-title {
+				max-width: 10rem;
+			}
+			&-btn {
+				transition: color 0.3s;
+				cursor: pointer;
+			}
+			&-btn:hover,
+			&-btn:focus {
+				color: $orange;
 			}
 		}
 	}
