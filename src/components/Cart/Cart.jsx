@@ -1,50 +1,36 @@
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CartContext from '../../store/cart-context'
 import classes from './Cart.module.scss'
 import CartProducts from './CartProducts'
 import Link from '../../UI/Link'
 import { formattedPrice } from '../../util/numberFormatter'
+import setDialogStyles from '../../util/setDialogStyles'
+import { useDialogEffect } from '../../hooks/useDialogEffect'
 
 export default function Cart() {
 	const { products, removeProduct, totalPrice, updateProduct, removeProducts } = useContext(CartContext)
 	const cartRef = useRef(null)
 	const backdropRef = useRef(null)
 	const navigate = useNavigate()
-	const [isOpen, setIsOpen] = useState(false)
 
 	useEffect(() => {
 		if (cartRef.current) {
 			cartRef.current.show()
-			setIsOpen(true)
-			document.body.style.overflow = 'hidden'
+			setDialogStyles(true)
 		}
 	}, [])
 
 	const handleClose = useCallback(() => {
 		if (cartRef.current) {
 			cartRef.current.close()
-			document.body.style.overflow = 'visible'
+			setDialogStyles(false)
 		}
-		setIsOpen(false)
+
 		navigate('..')
 	}, [navigate])
 
-	useEffect(() => {
-		const dialog = cartRef.current
-
-		const handleDialogClose = () => {
-			if (dialog && !dialog.open) {
-				handleClose()
-			}
-		}
-
-		document.addEventListener('close', handleDialogClose)
-
-		return () => {
-			document.removeEventListener('close', handleDialogClose)
-		}
-	}, [handleClose])
+	useDialogEffect(cartRef, handleClose)
 
 	function showAlert() {
 		products.length === 0 && alert('There are no products in your cart. Add the product before checkout.')
@@ -52,7 +38,7 @@ export default function Cart() {
 
 	return (
 		<>
-			{isOpen && <div ref={backdropRef} className={classes.cart__backdrop} onClick={handleClose} />}
+			<div ref={backdropRef} className={classes.cart__backdrop} onClick={handleClose} />
 			<dialog
 				ref={cartRef}
 				className={classes.cart}
