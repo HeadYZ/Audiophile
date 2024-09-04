@@ -10,16 +10,20 @@ const CartContext = createContext({
 	removeProducts: () => {},
 })
 
-const initialCart = { products: [], totalPrice: 0 }
+const getInitialCart = () => {
+	const storedCart = localStorage.getItem('cart')
+	return storedCart ? JSON.parse(storedCart) : { products: [], totalPrice: 0 }
+}
 
 export const CartContextProvider = ({ children }) => {
-	const [cart, dispatchCart] = useReducer(cartReducer, initialCart)
+	const [cart, dispatchCart] = useReducer(cartReducer, getInitialCart())
 
 	function cartReducer(state, action) {
+		let updatedProducts = [...state.products]
+		let updatedTotalPrice = state.totalPrice
+
 		if (action.type === 'ADD_PRODUCT') {
-			const updatedProducts = [...state.products]
 			const productId = updatedProducts.findIndex(product => product.title === action.title)
-			let updatedTotalPrice = state.totalPrice
 			const quantity = Number(action.quantity)
 			const price = Number(action.price)
 
@@ -35,28 +39,20 @@ export const CartContextProvider = ({ children }) => {
 			}
 
 			updatedTotalPrice += price * quantity
-
-			return { ...state, products: updatedProducts, totalPrice: updatedTotalPrice }
-		}
-		if (action.type === 'REMOVE_PRODUCT') {
-			const updatedProducts = [...state.products]
+		} else if (action.type === 'REMOVE_PRODUCT') {
 			const productId = updatedProducts.findIndex(product => product.title === action.title)
-			let updatedTotalPrice = state.totalPrice
+
 			if (updatedProducts[productId].quantity === 1) {
-				updatedTotalPrice = state.totalPrice - updatedProducts[productId].price
+				updatedTotalPrice -= updatedProducts[productId].price
 				updatedProducts.splice(productId, 1)
 			} else if (updatedProducts[productId].quantity > 1) {
-				updatedTotalPrice = state.totalPrice - updatedProducts[productId].price
+				updatedTotalPrice -= updatedProducts[productId].price
 				updatedProducts[productId].quantity -= 1
 			}
-
-			return { ...state, products: updatedProducts, totalPrice: updatedTotalPrice }
-		}
-		if (action.type === 'UPDATE_PRODUCT') {
-			const updatedProducts = [...state.products]
+		} else if (action.type === 'UPDATE_PRODUCT') {
 			const productId = updatedProducts.findIndex(product => product.title === action.title)
-			let updatedTotalPrice = state.totalPrice
 			updatedTotalPrice -= updatedProducts[productId].quantity * updatedProducts[productId].price
+
 			if (action.quantity) {
 				updatedProducts[productId].quantity = Number(action.quantity)
 			} else {
@@ -64,13 +60,15 @@ export const CartContextProvider = ({ children }) => {
 			}
 
 			updatedTotalPrice += updatedProducts[productId].quantity * updatedProducts[productId].price
+		} else if (action.type === 'REMOVE_PRODUCTS') {
+			updatedProducts = []
+			updatedTotalPrice = 0
+		}
 
-			return { ...state, products: updatedProducts, totalPrice: updatedTotalPrice }
-		}
-		if (action.type === 'REMOVE_PRODUCTS') {
-			return { ...state, products: [], totalPrice: 0 }
-		}
-		return { ...state }
+		const updatedCart = { products: updatedProducts, totalPrice: updatedTotalPrice }
+		localStorage.setItem('cart', JSON.stringify(updatedCart))
+
+		return updatedCart
 	}
 
 	const addProduct = ({ title, quantity, price, cartIcon }) => {
