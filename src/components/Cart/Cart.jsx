@@ -4,9 +4,9 @@ import CartContext from '../../store/cart-context'
 import classes from './Cart.module.scss'
 import CartProducts from './CartProducts'
 import Link from '../../UI/Link'
-import { formattedPrice } from '../../util/numberFormatter'
-import setDialogStyles from '../../util/setDialogStyles'
-import { useDialogEffect } from '../../hooks/useDialogEffect'
+import { formattedPrice } from '../../util/numberFormatter.js'
+import setDialogStyles from '../../util/setDialogStyles.js'
+import { useDialogEffect } from '../../hooks/useDialogEffect.jsx'
 
 export default function Cart() {
 	const { products, removeProduct, totalPrice, updateProduct, removeProducts } = useContext(CartContext)

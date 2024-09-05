@@ -85,7 +85,8 @@
 @media (min-width: 1440px) {
 	.cart {
 		top: 12.9rem;
-		right: 16.5rem;
+		right: calc((100vw - 144rem) / 2 + 16.5rem);
+
 		&__remove-btn {
 			transition: color 0.3s;
 			cursor: pointer;
