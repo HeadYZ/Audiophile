@@ -1,7 +1,7 @@
 import Button from '../../UI/Button'
 import Navigation from '../Navigation/Navigation'
 import classes from './Header.module.scss'
-import heroImg from '../../assets/home/tablet/image-header.jpg'
+import heroImg from '/assets/home/tablet/image-header.jpg'
 export default function Header() {
 	return (
 		<header className={classes.header}>

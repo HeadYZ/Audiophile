@@ -1,4 +1,4 @@
-import classes from '../components/Navigation/Navigation.module.scss'
+import classes from '../../src/components/Navigation/Navigation.module.scss'
 export default function IconCart() {
 	return (
 		<svg width='23' height='20' xmlns='http://www.w3.org/2000/svg' className={classes.nav__icon}>

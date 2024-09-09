@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import FbIcon from '../../assets/shared/FbIcon.jsx'
-import InstagramIcon from '../../assets/shared/InstagramIcon.jsx'
-import TwitterIcon from '../../assets/shared/TwitterIcon.jsx'
-import Logo from '../../assets/Logo.jsx'
+import FbIcon from '../../../public/assets/shared/FbIcon.jsx'
+import InstagramIcon from '../../../public/assets/shared/InstagramIcon.jsx'
+import TwitterIcon from '../../../public/assets/shared/TwitterIcon.jsx'
+import Logo from '../../../public/assets/Logo.jsx'
 import Navitems from '../Navigation/NavItems.jsx'
 import classes from './Footer.module.scss'
 export default function Footer() {

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
-import IconCart from '../../assets/IconCart.jsx'
-import Logo from '../../assets/Logo.jsx'
-import HamburgerIcon from '../../assets/HamburgerIcon'
+import IconCart from '../../../public/assets/IconCart.jsx'
+import Logo from '../../../public/assets/Logo.jsx'
+import HamburgerIcon from '../../../public/assets/HamburgerIcon.jsx'
 import classes from './Navigation.module.scss'
 import Navitems from './NavItems.jsx'
 

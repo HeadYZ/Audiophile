@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
-import earphonesImg from '../../assets/shared/desktop/image-category-thumbnail-earphones.png'
-import speakersImg from '../../assets/shared/desktop/image-category-thumbnail-speakers.png'
-import headphonesImg from '../../assets/shared/desktop/image-category-thumbnail-headphones.png'
-import ArrowRightIcon from '../../assets/shared/desktop/ArrowRight.svg'
+import earphonesImg from '/assets/shared/desktop/image-category-thumbnail-earphones.png'
+import speakersImg from '/assets/shared/desktop/image-category-thumbnail-speakers.png'
+import headphonesImg from '/assets/shared/desktop/image-category-thumbnail-headphones.png'
+import ArrowRightIcon from '/assets/shared/desktop/ArrowRight.svg'
 import classes from './Products.module.scss'
 
 export default function Products() {

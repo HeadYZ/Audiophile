@@ -1,4 +1,4 @@
-import classes from '../../components/Footer/Footer.module.scss'
+import classes from '../../../src/components/Footer/Footer.module.scss'
 
 export default function TwitterIcon() {
 	return (

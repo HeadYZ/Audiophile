@@ -1,4 +1,4 @@
-import classes from '../components/Navigation/Navigation.module.scss'
+import classes from '../../src/components/Navigation/Navigation.module.scss'
 
 export default function Logo() {
 	return (

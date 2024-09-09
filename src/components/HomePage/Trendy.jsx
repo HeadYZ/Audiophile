@@ -1,7 +1,7 @@
 import classes from './Trendy.module.scss'
-import zx9Img from '../../assets/home/mobile/image-speaker-zx9.png'
-import patternCircles from '../../assets/home/desktop/pattern-circles.svg'
-import zx9ImgDesktop from '../../assets/home/desktop/image-speaker-zx9.png'
+import zx9Img from '/assets/home/mobile/image-speaker-zx9.png'
+import patternCircles from '/assets/home/desktop/pattern-circles.svg'
+import zx9ImgDesktop from '/assets/home/desktop/image-speaker-zx9.png'
 import Button from '../../UI/Button'
 import { Link } from 'react-router-dom'
 export default function Trendy() {
