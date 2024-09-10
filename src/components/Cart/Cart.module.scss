@@ -13,7 +13,7 @@
 	border: none;
 	&__backdrop {
 		position: fixed;
-		top: 9rem;
+		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
@@ -96,7 +96,7 @@
 			color: $orange;
 		}
 		&__backdrop {
-			top: 9.6rem;
+			// top: 9.6rem;
 		}
 	}
 }

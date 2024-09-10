@@ -5,7 +5,6 @@ import classes from './Cart.module.scss'
 import CartProducts from './CartProducts'
 import Link from '../../UI/Link'
 import { formattedPrice } from '../../util/numberFormatter.js'
-import setDialogStyles from '../../util/setDialogStyles.js'
 import { useDialogEffect } from '../../hooks/useDialogEffect.jsx'
 
 export default function Cart() {
@@ -17,14 +16,12 @@ export default function Cart() {
 	useEffect(() => {
 		if (cartRef.current) {
 			cartRef.current.show()
-			setDialogStyles(true)
 		}
 	}, [])
 
 	const handleClose = useCallback(() => {
 		if (cartRef.current) {
 			cartRef.current.close()
-			setDialogStyles(false)
 		}
 
 		navigate('..')
