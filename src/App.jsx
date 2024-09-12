@@ -1,37 +1,67 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { lazy, Suspense } from 'react'
+import { CartContextProvider } from './store/cart-context.jsx'
 import './App.css'
 import RootLayout from './pages/RootLayout'
 import HomePage from './pages/HomePage'
-import { lazy, Suspense } from 'react'
+import Cart from './components/Cart/Cart.jsx'
+import ScrollToTop from './components/ScrollToTop.js'
 import Product from './pages/Product.jsx'
 import ProductsLayout from './pages/ProductsLayot.jsx'
-import { CartContextProvider } from './store/cart-context.jsx'
-import Cart from './components/Cart/Cart.jsx'
+import Checkout from './pages/Checkout.jsx'
+
 const Earphones = lazy(() => import('./pages/Earphones.jsx'))
 const Headphones = lazy(() => import('./pages/Headphones.jsx'))
 const Speakers = lazy(() => import('./pages/Speakers.jsx'))
+
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <RootLayout />,
+		element: (
+			<>
+				<ScrollToTop />
+				<RootLayout />
+			</>
+		),
 		children: [
 			{
 				path: '/',
-				element: <HomePage />,
+				element: (
+					<>
+						<ScrollToTop />
+						<HomePage />
+					</>
+				),
 				children: [{ path: '/cart', element: <Cart /> }],
 			},
-
+			{
+				path: '/checkout',
+				element: (
+					<>
+						<ScrollToTop />
+						<Checkout />
+					</>
+				),
+			},
 			{
 				path: '/earphones',
-				element: <ProductsLayout />,
+				element: (
+					<>
+						<ScrollToTop />
+						<ProductsLayout />
+					</>
+				),
 				children: [
 					{
 						path: '/earphones',
 						element: (
-							<Suspense fallback={<p>Loading...</p>}>
-								<Earphones />
-							</Suspense>
+							<>
+								<ScrollToTop />
+								<Suspense fallback={<p>Loading...</p>}>
+									<Earphones />
+								</Suspense>
+							</>
 						),
 						children: [{ path: 'cart', element: <Cart /> }],
 					},
@@ -40,14 +70,22 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/headphones',
-				element: <ProductsLayout />,
+				element: (
+					<>
+						<ScrollToTop />
+						<ProductsLayout />
+					</>
+				),
 				children: [
 					{
 						path: '/headphones',
 						element: (
-							<Suspense fallback={<p>Loading...</p>}>
-								<Headphones />
-							</Suspense>
+							<>
+								<ScrollToTop />
+								<Suspense fallback={<p>Loading...</p>}>
+									<Headphones />
+								</Suspense>
+							</>
 						),
 						children: [{ path: 'cart', element: <Cart /> }],
 					},
@@ -56,14 +94,22 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '/speakers',
-				element: <ProductsLayout />,
+				element: (
+					<>
+						<ScrollToTop />
+						<ProductsLayout />
+					</>
+				),
 				children: [
 					{
 						path: '/speakers',
 						element: (
-							<Suspense fallback={<p>Loading...</p>}>
-								<Speakers />
-							</Suspense>
+							<>
+								<ScrollToTop />
+								<Suspense fallback={<p>Loading...</p>}>
+									<Speakers />
+								</Suspense>
+							</>
 						),
 						children: [{ path: 'cart', element: <Cart /> }],
 					},
@@ -73,6 +119,7 @@ const router = createBrowserRouter([
 		],
 	},
 ])
+
 const queryClient = new QueryClient()
 
 function App() {

@@ -1,0 +1,27 @@
+@use '../scss//colors.scss' as *;
+.input {
+	height: 5.6rem;
+	padding: 2.4rem;
+	border: 1px solid transparent;
+	box-shadow: inset 0 0 0 1px rgb(207, 207, 207);
+	box-sizing: border-box;
+	border-radius: 0.8rem;
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+	}
+	&__label {
+		font-size: 1.2rem;
+		letter-spacing: -0.021rem;
+		font-weight: bold;
+	}
+	&::placeholder {
+		font-family: 'Manrope', sans-serif;
+		font-size: 1.4rem;
+		font-weight: bold;
+		letter-spacing: -0.025rem;
+		opacity: 0.4;
+	}
+}
