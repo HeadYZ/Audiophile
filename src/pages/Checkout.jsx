@@ -2,7 +2,7 @@ import { Form, useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation/Navigation'
 import classes from './Checkout.module.scss'
 import Input from '../UI/Input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 export default function Checkout() {
 	const navigate = useNavigate()
 	const [paymentMethod, setPaymentMethod] = useState('')
@@ -10,11 +10,19 @@ export default function Checkout() {
 		setPaymentMethod(e.target.value)
 	}
 
+	useEffect(() => {
+		document.getElementById('root').style.backgroundColor = 'rgb(241, 241, 241)'
+		return () => {
+			document.getElementById('root').style.backgroundColor = '#fff'
+		}
+	}, [])
+
 	return (
 		<>
 			<Navigation />
 			<main className={classes.checkout}>
 				<button
+					className={classes['checkout__return-btn']}
 					onClick={() => {
 						navigate(-1)
 					}}
@@ -39,43 +47,63 @@ export default function Checkout() {
 						</div>
 						<h2 className={classes.checkout__h2}>Payment details</h2>
 						<div>
-							<fieldset>
-								<legend>Payment method</legend>
+							<fieldset className={classes.checkout__fieldset}>
+								<legend className={classes['checkout__fieldset-legend']}>Payment Method</legend>
 
-								<label htmlFor='payment-emoney'>
+								<label
+									htmlFor='payment-emoney'
+									className={`${classes['checkout__fieldset-input']} ${
+										paymentMethod === 'emoney' && classes['checkout__fieldset-input--checked']
+									}`}
+								>
 									<input
 										type='radio'
 										name='paymentMethod'
 										value='emoney'
-										id='payment-cash'
+										id='payment-emoney'
 										onChange={handlePaymentChange}
+										className={classes['checkout__fieldset-input-radio']}
 									/>
 									e-Money
 								</label>
 
-								<label htmlFor='payment-cash'>
+								<label
+									htmlFor='payment-cash'
+									className={`${classes['checkout__fieldset-input']} ${
+										paymentMethod === 'cash' && classes['checkout__fieldset-input--checked']
+									}`}
+								>
 									<input
 										type='radio'
 										name='paymentMethod'
 										value='cash'
 										id='payment-cash'
 										onChange={handlePaymentChange}
+										className={classes['checkout__fieldset-input-radio']}
 									/>
 									Cash on Delivery
 								</label>
 							</fieldset>
-							
+
 							{paymentMethod === 'emoney' && (
 								<Input
-									label='e-money Number'
+									label='e-Money Number'
 									id='emoneyNumber'
 									name='emoneyNumber'
 									placeholder='2382521993'
 									type='number'
+									style={{ marginTop: '3.2rem' }}
 								/>
 							)}
 							{paymentMethod === 'emoney' && (
-								<Input label='e-money Pin' id='emoneyPin' name='emoneyPin' placeholder='6891' type='number' />
+								<Input
+									label='e-Money PIN'
+									id='emoneyPin'
+									name='emoneyPin'
+									placeholder='6891'
+									type='number'
+									style={{ marginTop: '2.4rem' }}
+								/>
 							)}
 						</div>
 					</Form>
