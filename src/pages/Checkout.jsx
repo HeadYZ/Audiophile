@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation/Navigation'
 import classes from './Checkout.module.scss'
 import Input from '../UI/Input'
 import { useEffect, useState } from 'react'
+import CheckoutSummary from '../components/Checkout/CheckoutSummary'
 export default function Checkout() {
 	const navigate = useNavigate()
 	const [paymentMethod, setPaymentMethod] = useState('')
@@ -31,7 +32,7 @@ export default function Checkout() {
 				</button>
 				<section className={classes.checkout__wrapper}>
 					<h1 className={classes.checkout__h1}>Checkout</h1>
-					<Form>
+					<Form method='post'>
 						<h2 className={classes.checkout__h2}>Billing details</h2>
 						<div className={classes.checkout__box}>
 							<Input label='Name' id='name' type='text' placeholder='Alexei Ward' name='name' />
@@ -106,9 +107,17 @@ export default function Checkout() {
 								/>
 							)}
 						</div>
+						<CheckoutSummary />
 					</Form>
 				</section>
 			</main>
 		</>
 	)
+}
+export async function action({ request }) {
+	const formData = await request.formData()
+
+	const data = Object.fromEntries(formData)
+	console.log(data)
+	return null
 }
