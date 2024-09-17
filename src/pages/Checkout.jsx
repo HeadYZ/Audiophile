@@ -34,22 +34,22 @@ export default function Checkout() {
 					<h1 className={classes.checkout__h1}>Checkout</h1>
 					<Form method='post'>
 						<h2 className={classes.checkout__h2}>Billing details</h2>
-						<div className={classes.checkout__box}>
+						<div className={`${classes.checkout__box} ${classes['checkout__box--first']}`}>
 							<Input label='Name' id='name' type='text' placeholder='Alexei Ward' name='name' />
 							<Input label='Email Address' id='email' type='email' placeholder='alexeiward@gmail.com' name='email' />
 							<Input label='Number' type='number' id='phoneNumber' placeholder='+1202-555-0136' name='phoneNumber' />
 						</div>
-						<h2 className={classes.checkout__h2}>Shipping info</h2>
-						<div className={classes.checkout__box}>
+						<h2 className={`${classes.checkout__h2} ${classes['checkout__h2--second']}`}>Shipping info</h2>
+						<div className={`${classes.checkout__box} ${classes['checkout__box--second']}`}>
 							<Input label='Your address' id='address' type='text' placeholder='1137 Williams Avenue' name='address' />
 							<Input label='ZIP Code' id='zipCode' type='number' placeholder='10001' name='zipCode' />
 							<Input label='City' id='city' type='text' placeholder='New York' name='city' />
 							<Input label='Country' id='country' type='text' placeholder='United States' name='country' />
 						</div>
-						<h2 className={classes.checkout__h2}>Payment details</h2>
+						<h2 className={`${classes.checkout__h2} ${classes['checkout__h2--third']}`}>Payment details</h2>
 						<div>
 							<fieldset className={classes.checkout__fieldset}>
-								<legend className={classes['checkout__fieldset-legend']}>Payment Method</legend>
+								<p className={classes['checkout__fieldset-legend']}>Payment Method</p>
 
 								<label
 									htmlFor='payment-emoney'
@@ -70,7 +70,7 @@ export default function Checkout() {
 
 								<label
 									htmlFor='payment-cash'
-									className={`${classes['checkout__fieldset-input']} ${
+									className={`${classes['checkout__fieldset-input']} ${classes['checkout__fieldset-input--second']} ${
 										paymentMethod === 'cash' && classes['checkout__fieldset-input--checked']
 									}`}
 								>
@@ -86,26 +86,20 @@ export default function Checkout() {
 								</label>
 							</fieldset>
 
-							{paymentMethod === 'emoney' && (
-								<Input
-									label='e-Money Number'
-									id='emoneyNumber'
-									name='emoneyNumber'
-									placeholder='2382521993'
-									type='number'
-									style={{ marginTop: '3.2rem' }}
-								/>
-							)}
-							{paymentMethod === 'emoney' && (
-								<Input
-									label='e-Money PIN'
-									id='emoneyPin'
-									name='emoneyPin'
-									placeholder='6891'
-									type='number'
-									style={{ marginTop: '2.4rem' }}
-								/>
-							)}
+							<div className={classes['checkout__box-emoney']}>
+								{paymentMethod === 'emoney' && (
+									<Input
+										label='e-Money Number'
+										id='emoneyNumber'
+										name='emoneyNumber'
+										placeholder='2382521993'
+										type='number'
+									/>
+								)}
+								{paymentMethod === 'emoney' && (
+									<Input label='e-Money PIN' id='emoneyPin' name='emoneyPin' placeholder='6891' type='number' />
+								)}
+							</div>
 						</div>
 						<CheckoutSummary />
 					</Form>
