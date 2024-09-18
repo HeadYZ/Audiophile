@@ -1,0 +1,30 @@
+@use '../../scss/colors.scss' as *;
+@use '../../scss//UI.scss' as *;
+
+.checkout {
+	&__summary {
+		position: absolute;
+
+		width: 100%;
+		background-color: $white;
+
+		&-h2 {
+			font-size: 1.8rem;
+			letter-spacing: 0.129rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin-bottom: 3.1rem;
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.checkout {
+		&__summary {
+			top: 0;
+			right: -38rem;
+			width: 35rem;
+			padding: 3.2rem 3.3rem;
+		}
+	}
+}
