@@ -3,9 +3,10 @@
 
 .checkout {
 	&__summary {
-		position: absolute;
-
+		margin-top: 3.2rem;
+		padding: 3.2rem 2.4rem;
 		width: 100%;
+		border-radius: 0.8rem;
 		background-color: $white;
 
 		&-h2 {
@@ -15,16 +16,67 @@
 			text-transform: uppercase;
 			margin-bottom: 3.1rem;
 		}
+		&-box {
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+		&-total,
+		&-shipping,
+		&-vat,
+		&-grand-total {
+			display: flex;
+			justify-content: space-between;
+			font-size: 1.8rem;
+			font-weight: bold;
+			span {
+				font-size: 1.5rem;
+				font-weight: 500;
+				line-height: 2.5rem;
+				text-transform: uppercase;
+				opacity: 0.5;
+			}
+		}
+		&-total {
+			margin-top: 3.2rem;
+		}
+		&-grand-total {
+			margin-top: 1.6rem;
+			color: $orange;
+			span {
+				color: $black;
+			}
+		}
+		&-submit {
+			font-family: 'Manrope', sans-serif;
+			margin-top: 3.2rem;
+			@include flex-r-center;
+			width: 100%;
+			font-size: 1.3rem;
+			letter-spacing: 0.1rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			padding: 1.5rem 2rem;
+			color: $white;
+			background-color: $orange;
+			border: none;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.checkout {
+		&__summary {
+			padding: 3.2rem 3.3rem;
+		}
 	}
 }
 
 @media (min-width: 1440px) {
 	.checkout {
 		&__summary {
-			top: 0;
-			right: -38rem;
+			margin: 0;
 			width: 35rem;
-			padding: 3.2rem 3.3rem;
 		}
 	}
 }

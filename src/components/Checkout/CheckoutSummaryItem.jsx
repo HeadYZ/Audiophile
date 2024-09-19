@@ -1,11 +1,8 @@
-import { useContext } from 'react'
+/* eslint-disable react/prop-types */
 import classes from './CheckoutSummaryItem.module.scss'
-import CartContext from '../../store/cart-context'
 import { formattedPrice } from '../../util/numberFormatter'
 
-export default function CheckoutSummaryItem() {
-	const { products } = useContext(CartContext)
-	console.log(products)
+export default function CheckoutSummaryItem({ products }) {
 	return (
 		<>
 			{products.map((product, index) => {
@@ -14,12 +11,13 @@ export default function CheckoutSummaryItem() {
 						<div className={classes['checkout__list-box-img']}>
 							<img src={product.cartIcon} alt='' />
 						</div>
-						<div className={classes['checkout__list-info']}>
+						<div className={classes['checkout__list-box']}>
 							<span className={classes['checkout__list-title']} title={product.title}>
 								{product.title}
 							</span>
 							<span className={classes['checkout__list-price']}>$ {formattedPrice(product.price)}</span>
 						</div>
+						<p className={classes['checkout__list-quantity']}>x{product.quantity}</p>
 					</li>
 				)
 			})}

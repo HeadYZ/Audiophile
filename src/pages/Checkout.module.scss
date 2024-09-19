@@ -4,8 +4,7 @@
 .checkout {
 	@include section-mobile;
 	background-color: $gray;
-	&__wrapper {
-		position: relative;
+	&__form {
 		padding: 2.4rem;
 		background-color: $white;
 		border-radius: 0.8rem;
@@ -110,7 +109,7 @@
 	.checkout {
 		@include section-tablet;
 		background-color: $gray;
-		&__wrapper {
+		&__form {
 			padding: 3rem 2.75rem;
 			max-width: 111rem;
 		}
@@ -183,8 +182,15 @@
 	.checkout {
 		@include section-desktop;
 		&__wrapper {
-			max-width: 73rem;
+			max-width: 111rem;
+			margin: 0 auto;
+			display: flex;
+			align-items: flex-start;
+			gap: 3rem;
+		}
+		&__form {
 			padding: 5.4rem 4.8rem;
+			max-width: 73rem;
 		}
 
 		&__return-btn {
