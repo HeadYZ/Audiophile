@@ -68,6 +68,24 @@
 	.checkout {
 		&__summary {
 			padding: 3.2rem 3.3rem;
+			max-width: 111rem;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+@media (min-width: 1240px) {
+	.checkout {
+		&__summary {
+			&-submit {
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+			&-submit:hover,
+			&-submit:focus {
+				background-color: $forange;
+			}
 		}
 	}
 }
