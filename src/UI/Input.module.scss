@@ -10,16 +10,39 @@
 	font-size: 1.4rem;
 	font-weight: bold;
 	letter-spacing: -0.025rem;
+	transition: box-shadow 0.3s;
 
+	&:focus {
+		outline: none;
+		box-shadow: inset 0 0 0 1px $orange;
+		caret-color: $orange;
+	}
 	&__box {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 0.9rem;
 	}
-	&__label {
+	&__label,
+	&__error-message {
 		font-size: 1.2rem;
 		letter-spacing: -0.021rem;
+	}
+	&__label {
 		font-weight: bold;
+		transition: color 0.3s;
+	}
+	&__label-error,
+	&__error-message {
+		color: rgb(205, 44, 44);
+	}
+	&__error {
+		box-shadow: inset 0 0 0 2px rgb(205, 44, 44);
+		&-message {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
 	}
 	&::placeholder {
 		font-family: 'Manrope', sans-serif;

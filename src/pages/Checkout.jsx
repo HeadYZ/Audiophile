@@ -41,5 +41,10 @@ export async function action({ request }) {
 	const formData = await request.formData()
 	const data = Object.fromEntries(formData)
 
+	const dataArray = Object.entries(data).map(([key, value]) => ({ [key]: value }))
+	const hasEmptyValue = dataArray.some(obj => {
+		return Object.values(obj).some(value => value === '')
+	})
+	console.log(hasEmptyValue)
 	return null
 }
