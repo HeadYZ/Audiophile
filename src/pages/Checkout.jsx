@@ -42,9 +42,18 @@ export async function action({ request }) {
 	const data = Object.fromEntries(formData)
 
 	const dataArray = Object.entries(data).map(([key, value]) => ({ [key]: value }))
-	const hasEmptyValue = dataArray.some(obj => {
-		return Object.values(obj).some(value => value === '')
+	const emptyFields = []
+
+	// Sprawdzanie, które pola są puste
+	dataArray.forEach(obj => {
+		Object.entries(obj).forEach(([key, value]) => {
+			if (value === '') {
+				emptyFields.push(key) // Dodaj nazwę pustego pola do tablicy
+			}
+		})
 	})
-	console.log(hasEmptyValue)
-	return null
+	if (emptyFields.length > 0) {
+		alert('To submit the order, all fields must be correctly filled out.')
+		return { emptyFields }
+	}
 }

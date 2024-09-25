@@ -1,29 +1,116 @@
-import { Form } from 'react-router-dom'
+import { Form, useActionData } from 'react-router-dom'
 import Input from '../../UI/Input'
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import checkoutCashIcon from '/assets/checkout/icon-cash-on-delivery.svg'
 import classes from './CheckoutForm.module.scss'
 
 export default function CheckoutForm() {
-	const [paymentMethod, setPaymentMethod] = useState('')
+	const actionData = useActionData()
+	const [paymentMethod, setPaymentMethod] = useState('emoney')
+	const [inputErrors, setInputErrors] = useState([])
+
+	// Dynamiczny obiekt ref, który przechowuje referencje do wszystkich inputów
+	const inputRefs = useRef({})
+
+	// Funkcja zmiany metody płatności
 	const handlePaymentChange = e => {
 		setPaymentMethod(e.target.value)
 	}
+
+	// Ustawienie inputErrors z actionData oraz fokusowanie na pierwszym pustym polu
+	useEffect(() => {
+		if (actionData && actionData.emptyFields) {
+			setInputErrors(actionData.emptyFields)
+			focusFirstEmptyField(actionData.emptyFields)
+		}
+	}, [actionData])
+
+	// Funkcja ustawiająca fokus na pierwszym pustym polu
+	const focusFirstEmptyField = emptyFields => {
+		for (const field of emptyFields) {
+			if (inputRefs.current[field]) {
+				inputRefs.current[field].focus()
+				break
+			}
+		}
+	}
+
+	// Sprawdzenie, czy dane pole ma błąd
+	const hasError = fieldName => inputErrors.includes(fieldName)
+
 	return (
 		<Form method='post' id='checkout_form'>
 			<h2 className={classes.checkout__h2}>Billing details</h2>
 			<div className={`${classes.checkout__box} ${classes['checkout__box--first']}`}>
-				<Input label='Name' id='name' type='text' placeholder='Alexei Ward' name='name' />
-				<Input label='Email Address' id='email' type='email' placeholder='alexeiward@gmail.com' name='email' />
-				<Input label='Number' type='number' id='phoneNumber' placeholder='+1202-555-0136' name='phoneNumber' />
+				<Input
+					label='Name'
+					id='name'
+					type='text'
+					placeholder='Alexei Ward'
+					name='name'
+					error={hasError('name')}
+					ref={el => (inputRefs.current.name = el)} // Dynamiczna referencja
+				/>
+				<Input
+					label='Email Address'
+					id='email'
+					type='email'
+					placeholder='alexeiward@gmail.com'
+					name='email'
+					error={hasError('email')}
+					ref={el => (inputRefs.current.email = el)}
+				/>
+				<Input
+					label='Number'
+					type='number'
+					id='phoneNumber'
+					placeholder='+1202-555-0136'
+					name='phoneNumber'
+					error={hasError('phoneNumber')}
+					ref={el => (inputRefs.current.phoneNumber = el)}
+				/>
 			</div>
+
 			<h2 className={`${classes.checkout__h2} ${classes['checkout__h2--second']}`}>Shipping info</h2>
 			<div className={`${classes.checkout__box} ${classes['checkout__box--second']}`}>
-				<Input label='Your address' id='address' type='text' placeholder='1137 Williams Avenue' name='address' />
-				<Input label='ZIP Code' id='zipCode' type='number' placeholder='10001' name='zipCode' />
-				<Input label='City' id='city' type='text' placeholder='New York' name='city' />
-				<Input label='Country' id='country' type='text' placeholder='United States' name='country' />
+				<Input
+					label='Your address'
+					id='address'
+					type='text'
+					placeholder='1137 Williams Avenue'
+					name='address'
+					error={hasError('address')}
+					ref={el => (inputRefs.current.address = el)}
+				/>
+				<Input
+					label='ZIP Code'
+					id='zipCode'
+					type='number'
+					placeholder='10001'
+					name='zipCode'
+					error={hasError('zipCode')}
+					ref={el => (inputRefs.current.zipCode = el)}
+				/>
+				<Input
+					label='City'
+					id='city'
+					type='text'
+					placeholder='New York'
+					name='city'
+					error={hasError('city')}
+					ref={el => (inputRefs.current.city = el)}
+				/>
+				<Input
+					label='Country'
+					id='country'
+					type='text'
+					placeholder='United States'
+					name='country'
+					error={hasError('country')}
+					ref={el => (inputRefs.current.country = el)}
+				/>
 			</div>
+
 			<h2 className={`${classes.checkout__h2} ${classes['checkout__h2--third']}`}>Payment details</h2>
 			<div>
 				<fieldset className={classes.checkout__fieldset}>
@@ -41,6 +128,7 @@ export default function CheckoutForm() {
 							value='emoney'
 							id='payment-emoney'
 							onChange={handlePaymentChange}
+							defaultChecked={paymentMethod === 'emoney'}
 							className={classes['checkout__fieldset-input-radio']}
 						/>
 						e-Money
@@ -72,10 +160,20 @@ export default function CheckoutForm() {
 							name='emoneyNumber'
 							placeholder='2382521993'
 							type='number'
+							error={hasError('emoneyNumber')}
+							ref={el => (inputRefs.current.emoneyNumber = el)}
 						/>
 					)}
 					{paymentMethod === 'emoney' && (
-						<Input label='e-Money PIN' id='emoneyPin' name='emoneyPin' placeholder='6891' type='number' />
+						<Input
+							label='e-Money PIN'
+							id='emoneyPin'
+							name='emoneyPin'
+							placeholder='6891'
+							type='number'
+							error={hasError('emoneyPin')}
+							ref={el => (inputRefs.current.emoneyPin = el)}
+						/>
 					)}
 					{paymentMethod === 'cash' && (
 						<div className={classes['checkout__cash-box']}>
