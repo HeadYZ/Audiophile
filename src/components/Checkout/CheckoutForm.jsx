@@ -9,15 +9,12 @@ export default function CheckoutForm() {
 	const [paymentMethod, setPaymentMethod] = useState('emoney')
 	const [inputErrors, setInputErrors] = useState([])
 
-	// Dynamiczny obiekt ref, który przechowuje referencje do wszystkich inputów
 	const inputRefs = useRef({})
 
-	// Funkcja zmiany metody płatności
 	const handlePaymentChange = e => {
 		setPaymentMethod(e.target.value)
 	}
 
-	// Ustawienie inputErrors z actionData oraz fokusowanie na pierwszym pustym polu
 	useEffect(() => {
 		if (actionData && actionData.emptyFields) {
 			setInputErrors(actionData.emptyFields)
@@ -25,7 +22,6 @@ export default function CheckoutForm() {
 		}
 	}, [actionData])
 
-	// Funkcja ustawiająca fokus na pierwszym pustym polu
 	const focusFirstEmptyField = emptyFields => {
 		for (const field of emptyFields) {
 			if (inputRefs.current[field]) {
@@ -35,7 +31,6 @@ export default function CheckoutForm() {
 		}
 	}
 
-	// Sprawdzenie, czy dane pole ma błąd
 	const hasError = fieldName => inputErrors.includes(fieldName)
 
 	return (

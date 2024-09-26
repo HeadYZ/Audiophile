@@ -1,11 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { useActionData, useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation/Navigation'
 import classes from './Checkout.module.scss'
 import { useEffect } from 'react'
 import CheckoutSummary from '../components/Checkout/CheckoutSummary'
 import CheckoutForm from '../components/Checkout/CheckoutForm'
+import CheckoutDialog from '../components/Checkout/CheckoutDialog'
 export default function Checkout() {
 	const navigate = useNavigate()
+	const actionData = useActionData()
 
 	useEffect(() => {
 		document.getElementById('root').style.backgroundColor = 'rgb(241, 241, 241)'
@@ -33,6 +35,7 @@ export default function Checkout() {
 					</section>
 					<CheckoutSummary />
 				</div>
+				{actionData?.form === 'correct' && <CheckoutDialog open={true} />}
 			</main>
 		</>
 	)
@@ -44,16 +47,17 @@ export async function action({ request }) {
 	const dataArray = Object.entries(data).map(([key, value]) => ({ [key]: value }))
 	const emptyFields = []
 
-	// Sprawdzanie, które pola są puste
-	dataArray.forEach(obj => {
-		Object.entries(obj).forEach(([key, value]) => {
-			if (value === '') {
-				emptyFields.push(key) // Dodaj nazwę pustego pola do tablicy
-			}
-		})
-	})
-	if (emptyFields.length > 0) {
-		alert('To submit the order, all fields must be correctly filled out.')
-		return { emptyFields }
-	}
+	// dataArray.forEach(obj => {
+	// 	Object.entries(obj).forEach(([key, value]) => {
+	// 		if (value === '') {
+	// 			emptyFields.push(key)
+	// 		}
+	// 	})
+	// })
+	// if (emptyFields.length > 0) {
+	// 	alert('To submit the order, all fields must be correctly filled out.')
+	// 	return { emptyFields }
+	// }
+
+	return { form: 'correct' }
 }

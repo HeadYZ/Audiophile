@@ -102,7 +102,6 @@ const Input = forwardRef(({ label, name, style, type, error, ...props }, ref) =>
 	)
 })
 
-// Dodanie displayName dla komponentu Input
 Input.displayName = 'Input'
 
 export default Input
