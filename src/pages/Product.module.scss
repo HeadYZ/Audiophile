@@ -1,0 +1,25 @@
+@use '../scss//UI.scss' as *;
+
+.error {
+	@include section-mobile;
+	@include flex-c-center;
+	gap: 2.4rem;
+	padding-top: 12rem;
+	&__h1 {
+		font-size: 2.4rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.error {
+		@include main-h-tablet;
+		@include section-tablet;
+	}
+}
+
+@media (min-width: 1440px) {
+	.error {
+		@include main-h-desktop;
+		@include section-desktop;
+	}
+}

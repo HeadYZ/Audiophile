@@ -35,4 +35,10 @@
 	@include flex-r-center;
 }
 
-// 120 168 200 200
+@mixin main-h-tablet {
+	min-height: calc(100vh - 59.46rem);
+}
+
+@mixin main-h-desktop {
+	min-height: calc(100vh - 62.6rem);
+}

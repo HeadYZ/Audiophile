@@ -15,7 +15,7 @@ export default function CheckoutSummary() {
 			</ul>
 			<div className={classes['checkout__summary-box']}>
 				<p className={classes['checkout__summary-total']}>
-					<span>Total</span> {totalPrice}
+					<span>Total</span> {formattedPrice(totalPrice)}$
 				</p>
 				<p className={classes['checkout__summary-shipping']}>
 					<span>Shipping</span> 50$
@@ -25,8 +25,8 @@ export default function CheckoutSummary() {
 					{formattedPrice(totalPrice * vat)}
 				</p>
 				<p className={classes['checkout__summary-grand-total']}>
-					<span>Grand total)</span>
-					{formattedPrice(totalPrice * vat + shipping)}
+					<span>Grand total</span>
+					{formattedPrice(totalPrice + shipping)}$
 				</p>
 			</div>
 			<button type='submit' className={classes['checkout__summary-submit']} form='checkout_form'>

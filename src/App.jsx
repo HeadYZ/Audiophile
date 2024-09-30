@@ -11,6 +11,7 @@ import Product from './pages/Product.jsx'
 import ProductsLayout from './pages/ProductsLayot.jsx'
 import Checkout from './pages/Checkout.jsx'
 import { action as checkoutAction } from './pages/Checkout.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 const Earphones = lazy(() => import('./pages/Earphones.jsx'))
 const Headphones = lazy(() => import('./pages/Headphones.jsx'))
@@ -118,6 +119,7 @@ const router = createBrowserRouter([
 					{ path: ':productName', element: <Product />, children: [{ path: 'cart', element: <Cart /> }] },
 				],
 			},
+			{ path: '*', element: <NotFound /> },
 		],
 	},
 ])
