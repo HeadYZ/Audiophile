@@ -8,7 +8,9 @@
 		width: 32.7rem;
 		border-radius: 0.8rem;
 		border: none;
-
+		&::backdrop {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
 		&-wrapper {
 			padding: 3.2rem;
 		}
@@ -42,6 +44,32 @@
 			letter-spacing: 0.1rem;
 			border: none;
 			text-transform: uppercase;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.checkout {
+		&__dialog {
+			width: 54rem;
+			&-wrapper {
+				padding: 4.8rem;
+			}
+			&-img {
+				margin-bottom: 3.3rem;
+			}
+			&-box {
+				margin-bottom: 4.6rem;
+			}
+			&-h2 {
+				margin-bottom: 2.4rem;
+				font-size: 3.2rem;
+				line-height: 3.6rem;
+				letter-spacing: 0.114rem;
+			}
+			&-text {
+				margin-bottom: 3.3rem;
+			}
 		}
 	}
 }
