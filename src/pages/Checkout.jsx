@@ -1,4 +1,4 @@
-import { useActionData, useNavigate } from 'react-router-dom'
+import { Outlet, useActionData, useNavigate } from 'react-router-dom'
 import Navigation from '../components/Navigation/Navigation'
 import classes from './Checkout.module.scss'
 import { useEffect } from 'react'
@@ -20,6 +20,7 @@ export default function Checkout() {
 		<>
 			<Navigation />
 			<main className={classes.checkout}>
+				<Outlet />
 				<button
 					className={classes['checkout__return-btn']}
 					onClick={() => {
@@ -47,17 +48,17 @@ export async function action({ request }) {
 	const dataArray = Object.entries(data).map(([key, value]) => ({ [key]: value }))
 	const emptyFields = []
 
-	// dataArray.forEach(obj => {
-	// 	Object.entries(obj).forEach(([key, value]) => {
-	// 		if (value === '') {
-	// 			emptyFields.push(key)
-	// 		}
-	// 	})
-	// })
-	// if (emptyFields.length > 0) {
-	// 	alert('To submit the order, all fields must be correctly filled out.')
-	// 	return { emptyFields }
-	// }
+	dataArray.forEach(obj => {
+		Object.entries(obj).forEach(([key, value]) => {
+			if (value === '') {
+				emptyFields.push(key)
+			}
+		})
+	})
+	if (emptyFields.length > 0) {
+		alert('To submit the order, all fields must be correctly filled out.')
+		return { emptyFields }
+	}
 
 	return { form: 'correct' }
 }

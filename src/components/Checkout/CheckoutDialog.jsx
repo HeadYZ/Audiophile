@@ -1,18 +1,22 @@
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import iconOrder from '/assets/checkout/icon-order-confirmation.svg'
 import { useNavigate } from 'react-router-dom'
 import classes from './CheckoutDialog.module.scss'
 import CheckoutDialogList from './CheckoutDialogList.jsx'
+import Link from '../../UI/Link.jsx'
+import CartContext from '../../store/cart-context.jsx'
 
 export default function CheckoutDialog() {
 	const dialogRef = useRef()
 	const navigate = useNavigate()
+	const { removeProducts } = useContext(CartContext)
 	useEffect(() => {
 		if (dialogRef) {
 			dialogRef.current.showModal()
 		}
 		const handleBackdropClick = e => {
 			if (dialogRef.current.open && e.target === dialogRef.current) {
+				removeProducts()
 				dialogRef.current.close()
 				navigate('/')
 			}
@@ -25,11 +29,12 @@ export default function CheckoutDialog() {
 				dialogRef.current.removeEventListener('click', handleBackdropClick)
 			}
 		}
-	}, [navigate])
+	}, [navigate, removeProducts])
 	return (
 		<dialog
 			ref={dialogRef}
 			onClose={() => {
+				removeProducts()
 				dialogRef.current.close()
 				navigate('/')
 			}}
@@ -48,7 +53,7 @@ export default function CheckoutDialog() {
 				<div className={classes['checkout__dialog-box']}>
 					<CheckoutDialogList />
 				</div>
-				<button className={classes['checkout__dialog-btn']}>Back to home</button>
+				<Link to='/'>Back to home</Link>
 			</div>
 		</dialog>
 	)

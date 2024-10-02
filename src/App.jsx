@@ -45,6 +45,7 @@ const router = createBrowserRouter([
 						<Checkout />
 					</>
 				),
+				children: [{ path: 'cart', element: <Cart /> }],
 				action: checkoutAction,
 			},
 			{
