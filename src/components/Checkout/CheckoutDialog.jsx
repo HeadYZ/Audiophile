@@ -11,8 +11,10 @@ export default function CheckoutDialog() {
 	const navigate = useNavigate()
 	const { removeProducts } = useContext(CartContext)
 	useEffect(() => {
-		if (dialogRef) {
+		if (dialogRef.current) {
 			dialogRef.current.showModal()
+			const firstFocusableElement = dialogRef.current.querySelector('a, button, input, [tabindex]:not([tabindex="-1"])')
+			firstFocusableElement?.focus()
 		}
 		const handleBackdropClick = e => {
 			if (dialogRef.current.open && e.target === dialogRef.current) {
@@ -33,6 +35,9 @@ export default function CheckoutDialog() {
 	return (
 		<dialog
 			ref={dialogRef}
+			role='dialog'
+			aria-labelledby='checkout-dialog-title'
+			aria-describedby='checkout-dialog-description'
 			onClose={() => {
 				removeProducts()
 				dialogRef.current.close()
@@ -41,15 +46,13 @@ export default function CheckoutDialog() {
 			className={classes.checkout__dialog}
 		>
 			<div className={classes['checkout__dialog-wrapper']}>
-				<img
-					className={classes['checkout__dialog-img']}
-					src={iconOrder}
-					alt='An icon representing the successful submission of the form.'
-				/>
-				<h2 className={classes['checkout__dialog-h2']}>
-					Thank you <br></br> for your order
+				<img className={classes['checkout__dialog-img']} src={iconOrder} alt='Order confirmation icon.' />
+				<h2 id='checkout-dialog-title' className={classes['checkout__dialog-h2']}>
+					Thank you <br /> for your order
 				</h2>
-				<p className={classes['checkout__dialog-text']}>You will receive an email confirmation shortly.</p>
+				<p id='checkout-dialog-description' className={classes['checkout__dialog-text']}>
+					You will receive an email confirmation shortly.
+				</p>
 				<div className={classes['checkout__dialog-box']}>
 					<CheckoutDialogList />
 				</div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Link } from 'react-router-dom'
 import FbIcon from '../../../public/assets/shared/FbIcon.jsx'
 import InstagramIcon from '../../../public/assets/shared/InstagramIcon.jsx'
@@ -26,14 +27,14 @@ export default function Footer() {
 					Copyright 2024. All Rights Reserved
 				</p>
 				<div className={classes.footer__social}>
-					<a href='' className={classes.footer__link}>
+					<a href='/' className={classes.footer__link}>
 						<FbIcon />
 					</a>
-					<a href='' className={classes.footer__link}>
+					<a href='/' className={classes.footer__link}>
 						<TwitterIcon />
 					</a>
 
-					<a href='' className={classes.footer__link}>
+					<a href='/' className={classes.footer__link}>
 						<InstagramIcon />
 					</a>
 				</div>

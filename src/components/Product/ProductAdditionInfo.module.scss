@@ -1,9 +1,6 @@
 @use '../../scss/typography.scss' as *;
 @use '../../scss/UI.scss' as *;
 .product {
-	&__link {
-		@include link;
-	}
 	&__images {
 		margin: 8.8rem auto 0;
 		display: flex;

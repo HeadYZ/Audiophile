@@ -73,7 +73,13 @@ export default function ProductInfo({ name, price, images, isNew, category, desc
 							+
 						</button>
 					</div>
-					<Button btn='1' onClick={addProductHandler}>
+					<Button
+						btn='1'
+						onClick={() => {
+							addProductHandler()
+							alert('The product has been added to the cart')
+						}}
+					>
 						Add to cart
 					</Button>
 				</div>

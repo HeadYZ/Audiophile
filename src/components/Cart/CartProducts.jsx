@@ -4,12 +4,12 @@ import { formattedPrice } from '../../util/numberFormatter.js'
 import classes from './CartProducts.module.scss'
 
 export default function CartProducts({ products, onRemove, onUpdate }) {
-	const productQuantity = useRef()
-	const onUpdateHandler = title => {
-		const input = productQuantity.current
+	const productQuantities = useRef({})
+
+	const onUpdateHandler = (title, index) => {
+		const input = productQuantities.current[index]
 		if (input) {
 			const sanitizedValue = input.value.replace(/[^0-9]/g, '')
-
 			input.value = sanitizedValue
 		}
 
@@ -17,8 +17,9 @@ export default function CartProducts({ products, onRemove, onUpdate }) {
 			onUpdate({ title, quantity: input.value })
 		}
 	}
-	const onBlurHandler = title => {
-		const input = productQuantity.current
+
+	const onBlurHandler = (title, index) => {
+		const input = productQuantities.current[index]
 		if (input && input.value === '') {
 			input.value = '1'
 			onUpdate({ title, quantity: input.value })
@@ -34,59 +35,53 @@ export default function CartProducts({ products, onRemove, onUpdate }) {
 
 	return (
 		<>
-			{products.map((product, index) => {
-				return (
-					<li key={index} className={classes['cart__list-item']}>
-						<div className={classes['cart__list-box-img']}>
-							<img src={product.cartIcon} alt='' />
-						</div>
-						<div className={classes['cart__list-info']}>
-							<span className={classes['cart__list-title']} title={product.title}>
-								{product.title}
-							</span>
-							<span className={classes['cart__list-price']}>$ {formattedPrice(product.price)}</span>
-						</div>
-						<div className={classes['cart__list-box']}>
-							<button
-								onClick={() => {
-									onRemove({ title: product.title })
-									productQuantity.current.stepDown()
-								}}
-								aria-label='Decrease quantity'
-								className={`${classes['cart__list-btn']} ${classes['cart__list-btn--left']}`}
-							>
-								-
-							</button>
-							<input
-								type='number'
-								ref={productQuantity}
-								onChange={() => {
-									onUpdateHandler(product.title)
-								}}
-								onKeyDown={handleKeyPress}
-								onBlur={() => {
-									onBlurHandler(product.title)
-								}}
-								defaultValue={product.quantity}
-								min='1'
-								step='1'
-								aria-label={`Quantity for ${product.name}`}
-								className={classes['cart__list-input']}
-							/>
-							<button
-								onClick={() => {
-									onUpdate({ title: product.title })
-									productQuantity.current.stepUp()
-								}}
-								aria-label='Increase quantity'
-								className={`${classes['cart__list-btn']} ${classes['cart__list-btn--right']}`}
-							>
-								+
-							</button>
-						</div>
-					</li>
-				)
-			})}
+			{products.map((product, index) => (
+				<li key={index} className={classes['cart__list-item']}>
+					<div className={classes['cart__list-box-img']}>
+						<img src={product.cartIcon} alt={product.title} />
+					</div>
+					<div className={classes['cart__list-info']}>
+						<span className={classes['cart__list-title']} title={product.title}>
+							{product.title}
+						</span>
+						<span className={classes['cart__list-price']}>$ {formattedPrice(product.price)}</span>
+					</div>
+					<div className={classes['cart__list-box']}>
+						<button
+							onClick={() => {
+								onRemove({ title: product.title })
+								productQuantities.current[index].stepDown()
+							}}
+							aria-label={`Decrease quantity for ${product.title}`}
+							className={`${classes['cart__list-btn']} ${classes['cart__list-btn--left']}`}
+						>
+							-
+						</button>
+						<input
+							type='number'
+							ref={el => (productQuantities.current[index] = el)}
+							onChange={() => onUpdateHandler(product.title, index)}
+							onKeyDown={handleKeyPress}
+							onBlur={() => onBlurHandler(product.title, index)}
+							defaultValue={product.quantity}
+							min='1'
+							step='1'
+							aria-label={`Quantity for ${product.title}`}
+							className={classes['cart__list-input']}
+						/>
+						<button
+							onClick={() => {
+								onUpdate({ title: product.title })
+								productQuantities.current[index].stepUp()
+							}}
+							aria-label={`Increase quantity for ${product.title}`}
+							className={`${classes['cart__list-btn']} ${classes['cart__list-btn--right']}`}
+						>
+							+
+						</button>
+					</div>
+				</li>
+			))}
 		</>
 	)
 }

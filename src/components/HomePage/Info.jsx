@@ -14,6 +14,7 @@ export default function Info() {
 						src={manMobileImg}
 						alt='Man wearing earphones listening to music'
 						className={classes['info__picture-img']}
+						loading='lazy'
 					/>
 				</picture>
 

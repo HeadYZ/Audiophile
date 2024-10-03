@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom'
-import Button from '../../UI/Button'
+import Link from '../../UI/Link.jsx'
 import classes from './ProductAdditionInfo.module.scss'
 
 export default function ProductAdditionInfo({ products, images }) {
@@ -46,11 +45,9 @@ export default function ProductAdditionInfo({ products, images }) {
 								</div>
 								<div className={classes['product__addition-box']}>
 									<h4 className={classes['product__addition-box-heading']}>{product.name}</h4>
-									<Button btn='1'>
-										<Link to={`/${productCategory}/${productName}`} className={classes.product__link}>
-											See product
-										</Link>
-									</Button>
+									<Link to={`/${productCategory}/${productName}`} style={{ width: '16rem' }}>
+										See product
+									</Link>
 								</div>
 							</li>
 						)

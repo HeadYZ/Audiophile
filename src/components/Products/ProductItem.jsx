@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom'
-import Button from '../../UI/Button'
+import Link from '../../UI/Link.jsx'
 import classes from './ProductItem.module.scss'
 
 export default function ProductItem({ newProduct = false, title, description, images, category, isEven }) {
@@ -12,11 +11,7 @@ export default function ProductItem({ newProduct = false, title, description, im
 				<picture>
 					<source media='(min-width: 768px) and (max-width: 1440px )' srcSet={images.tablet} />
 					<source media='(min-width: 1440px)' srcSet={images.desktop} />
-					<img
-						src={images.mobile}
-						alt='Man wearing earphones listening to music'
-						className={classes['info__picture-img']}
-					/>
+					<img src={images.mobile} alt={title} className={classes['info__picture-img']} />
 				</picture>
 			</div>
 			<div className={classes['products__item-box']}>
@@ -27,9 +22,10 @@ export default function ProductItem({ newProduct = false, title, description, im
 					{category}
 				</h2>
 				<p className={classes['products__item-description']}>{description}</p>
-				<Button btn='1'>
-					<Link to={productLink}>See product</Link>
-				</Button>
+
+				<Link to={productLink} style={{ width: '16rem' }}>
+					See product
+				</Link>
 			</div>
 		</li>
 	)

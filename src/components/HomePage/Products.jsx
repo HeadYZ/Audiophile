@@ -4,7 +4,6 @@ import speakersImg from '/assets/shared/desktop/image-category-thumbnail-speaker
 import headphonesImg from '/assets/shared/desktop/image-category-thumbnail-headphones.png'
 import ArrowRightIcon from '/assets/shared/desktop/ArrowRight.svg'
 import classes from './Products.module.scss'
-
 export default function Products() {
 	const navigate = useNavigate()
 	return (
@@ -14,7 +13,7 @@ export default function Products() {
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={headphonesImg}
-							alt=''
+							alt='XX99 Mark I headphones'
 							className={`${classes['products__list-img']} ${classes['products__list-img--1']}`}
 						/>
 					</div>
@@ -23,7 +22,7 @@ export default function Products() {
 						<h3 className={classes['products__list-item-heading']}>Headphones</h3>
 						<Link to='/headphones' className={classes['products__list-item-link']}>
 							<span>Shop</span>
-							<img src={ArrowRightIcon} alt='' />
+							<img src={ArrowRightIcon} alt='right arrow' />
 						</Link>
 					</div>
 				</li>
@@ -31,7 +30,7 @@ export default function Products() {
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={speakersImg}
-							alt=''
+							alt='ZX9 speakers'
 							className={`${classes['products__list-img']} ${classes['products__list-img--2']}`}
 						/>
 					</div>
@@ -40,7 +39,7 @@ export default function Products() {
 						<h3 className={classes['products__list-item-heading']}>Speakers</h3>
 						<Link to='/speakers' className={classes['products__list-item-link']}>
 							<span>Shop</span>
-							<img src={ArrowRightIcon} alt='' />
+							<img src={ArrowRightIcon} alt='right arrow' />
 						</Link>
 					</div>
 				</li>
@@ -48,7 +47,7 @@ export default function Products() {
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={earphonesImg}
-							alt=''
+							alt='YX1 Wireless earphones'
 							className={`${classes['products__list-img']} ${classes['products__list-img--3']}`}
 						/>
 					</div>
@@ -56,7 +55,7 @@ export default function Products() {
 						<h3 className={classes['products__list-item-heading']}>Earphones</h3>
 						<Link to='/earphones' className={classes['products__list-item-link']}>
 							<span>Shop</span>
-							<img src={ArrowRightIcon} alt='' />
+							<img src={ArrowRightIcon} alt='right arrow' />
 						</Link>
 					</div>
 				</li>
