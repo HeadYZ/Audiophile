@@ -4,6 +4,8 @@ import Logo from '../../../public/assets/Logo.jsx'
 import HamburgerIcon from '../../../public/assets/HamburgerIcon.jsx'
 import classes from './Navigation.module.scss'
 import Navitems from './NavItems.jsx'
+import NavigationMenu from './NavigationMenu.jsx'
+import { useState } from 'react'
 
 export default function Navigation() {
 	const location = useLocation()
@@ -13,10 +15,15 @@ export default function Navigation() {
 		? `${location.pathname}cart`
 		: `${location.pathname}/cart`
 
+	const [showMenu, setShowMenu] = useState(false)
+	const showMenuHandler = () => {
+		setShowMenu(prevShow => !prevShow)
+	}
+
 	return (
 		<nav className={classes.nav}>
 			<div className={classes.nav__wrapper}>
-				<button className={classes.nav__btn} aria-label='Menu'>
+				<button className={classes.nav__btn} aria-label='Menu' onClick={showMenuHandler}>
 					<HamburgerIcon />
 				</button>
 				<div className={classes.nav__logo}>
@@ -35,6 +42,7 @@ export default function Navigation() {
 					</Link>
 				</div>
 			</div>
+			{showMenu && <NavigationMenu hideMenu={showMenuHandler} />}
 		</nav>
 	)
 }

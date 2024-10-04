@@ -8,7 +8,7 @@
 	color: $white;
 	background-color: $black16;
 	nav {
-		background-color: $black16;
+		background-color: rgba(25, 25, 25, 0);
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -49,11 +49,16 @@
 
 @media (min-width: 768px) {
 	.header {
-		height: 63.9rem;
+		position: sticky;
+		height: 72.9rem;
+		background-image: url('/assets/home//tablet/image-header.jpg');
+		background-size: cover;
+
 		@include section-tablet;
 		&__wrapper {
 			margin: 0 auto;
 			max-width: 111rem;
+			z-index: 10;
 		}
 		&__box {
 			margin: 0 auto;
@@ -70,6 +75,16 @@
 			width: 34.9rem;
 			margin-bottom: 4rem;
 		}
+	}
+	.header::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 72.9rem;
+		background-color: rgba(0, 0, 0, 0.5); /* Przyciemnienie z przezroczystością */
+		z-index: -1;
 	}
 }
 

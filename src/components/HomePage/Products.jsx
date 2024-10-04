@@ -4,12 +4,19 @@ import speakersImg from '/assets/shared/desktop/image-category-thumbnail-speaker
 import headphonesImg from '/assets/shared/desktop/image-category-thumbnail-headphones.png'
 import ArrowRightIcon from '/assets/shared/desktop/ArrowRight.svg'
 import classes from './Products.module.scss'
-export default function Products() {
+// eslint-disable-next-line react/prop-types
+export default function Products({ onHide }) {
 	const navigate = useNavigate()
 	return (
 		<section className={classes.products}>
 			<ul className={classes.products__list}>
-				<li className={classes['products__list-item']} onClick={() => navigate('/headphones')}>
+				<li
+					className={classes['products__list-item']}
+					onClick={() => {
+						if (onHide) onHide()
+						navigate('/headphones')
+					}}
+				>
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={headphonesImg}
@@ -26,7 +33,13 @@ export default function Products() {
 						</Link>
 					</div>
 				</li>
-				<li className={classes['products__list-item']} onClick={() => navigate('/speakers')}>
+				<li
+					className={classes['products__list-item']}
+					onClick={() => {
+						if (onHide) onHide()
+						navigate('/speakers')
+					}}
+				>
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={speakersImg}
@@ -43,7 +56,13 @@ export default function Products() {
 						</Link>
 					</div>
 				</li>
-				<li className={classes['products__list-item']} onClick={() => navigate('/earphones')}>
+				<li
+					className={classes['products__list-item']}
+					onClick={() => {
+						if (onHide) onHide()
+						navigate('/earphones')
+					}}
+				>
 					<div className={classes['products__list-item-top']}>
 						<img
 							src={earphonesImg}
