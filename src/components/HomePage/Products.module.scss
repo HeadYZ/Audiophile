@@ -5,11 +5,13 @@
 .products {
 	@include section-mobile;
 	margin-top: 4rem;
+
 	&__list {
 		display: flex;
 		flex-direction: column;
 		gap: 1.6rem;
 		list-style: none;
+
 		&-item {
 			height: 21.7rem;
 			text-align: center;
@@ -26,6 +28,7 @@
 				margin-bottom: 1.7rem;
 			}
 			&-link {
+				position: relative;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -36,6 +39,7 @@
 				text-decoration: none;
 				text-transform: uppercase;
 				font-weight: bold;
+
 				span {
 					opacity: 50%;
 					color: $black;
@@ -52,6 +56,7 @@
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
+
 			&--1,
 			&--2 {
 				width: 14rem;
